@@ -1,0 +1,33 @@
+<root>
+    <model vendor="vendor" name="generic">
+        <mapping>
+            <property name="mapping.property.predefined" value="mapping.value"/>
+            <property name="mapping.property.device" ref="mapping.reference"/>
+        </mapping>
+        <properties>
+            <property name="properties.property" ref="properties.reference"/>
+        </properties>
+        <control>
+            <property name="control.property" value="control.value"/>
+        </control>
+        <statistic>
+            <property name="statistic.property" ref="statistic.reference"/>
+        </statistic>
+    </model>
+
+    <model vendor="vendor" name="overridden">
+        <mapping>
+            <property name="mapping.property.predefined" value="overridden.mapping.value"/>
+            <property name="mapping.property.device" ref="overridden.mapping.reference"/>
+        </mapping>
+        <properties>
+            <property name="properties.property" ref="overridden.properties.reference"/>
+        </properties>
+        <control>
+            <property name="control.property" value="overridden.control.value"/>
+        </control>
+        <statistic>
+            <property name="statistic.property" ref="overridden.statistic.reference"/>
+        </statistic>
+    </model>
+</root>

@@ -1,0 +1,347 @@
+[
+  {
+    "ButtonControlSettings": {
+      "MuteControlFunction": "Local",
+      "MuteButtonMode": "Toggle",
+      "DefaultMuteState": false,
+      "LogicOut": true
+    },
+    "LedSettings": {
+      "LedDisplayAutomixGating": false,
+      "LedGatedOffChannelsUseMuteColor": false,
+      "LedStyleSetting": "Ring",
+      "LedMute": {
+        "LedBehavior": "SolidOn",
+        "LedColor": "Red"
+      },
+      "LedUnmute": {
+        "LedBehavior": "SolidOn",
+        "LedColor": "Green"
+      },
+      "EthernetLedStatus": true,
+      "LedBrightnessPercentage": 100
+    },
+    "BypassAllEq": false,
+    "EnableLowCutFilter": true,
+    "LobeChannels": [
+      {
+        "MicAngle": 0,
+        "MicPattern": "Toroid",
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 1"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 0,
+        "Name": "Channel 1",
+        "Label": "Output 1"
+      },
+      {
+        "MicAngle": 90,
+        "MicPattern": "Cardioid",
+        "AudioEnabled": false,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 2"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 1,
+        "Name": "Channel 2",
+        "Label": "Output 2"
+      },
+      {
+        "MicAngle": 180,
+        "MicPattern": "Cardioid",
+        "AudioEnabled": false,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 3"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 2,
+        "Name": "Channel 3",
+        "Label": "Output 3"
+      },
+      {
+        "MicAngle": 270,
+        "MicPattern": "Cardioid",
+        "AudioEnabled": false,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 4"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 3,
+        "Name": "Channel 4",
+        "Label": "Output 4"
+      }
+    ],
+    "MixChannel": {
+      "Type": "Mix",
+      "DanteSettings": {
+        "DanteEncryptionStatus": "Inactive",
+        "DanteName": "Automix Out"
+      },
+      "AudioGain": 0.0,
+      "AudioMute": false,
+      "Index": 0,
+      "Name": "Automix Out",
+      "Label": "Mix 1"
+    },
+    "Uptime": "784:44:13",
+    "PasswordSet": false,
+    "DeviceAudioMute": false,
+    "DanteNetworkInfo": {
+      "IpMode": "Dhcp",
+      "IpAddress": "172.31.254.241",
+      "SubnetMask": "255.255.255.0",
+      "DefaultGateway": "172.31.254.2",
+      "MacAddress": "00:1D:C1:90:F6:B2"
+    },
+    "DanteSettings": {
+      "DeviceName": "MXA310-90f6b2",
+      "EncryptionEnabled": false,
+      "EncryptionPassphraseSet": false,
+      "DeviceNameConflict": false,
+      "ClockSyncError": false
+    },
+    "ActivePresetIndex": 255,
+    "HardwareId": "dd5162e4-0000-11dd-a000-000eddcccccc",
+    "Model": "MXA310",
+    "DeviceVersion": 4,
+    "FirmwareVersion": "3.1.5",
+    "Name": "MXA310-5162e4",
+    "SerialNumber": "2RL0778411",
+    "ControlNetworkInfo": {
+      "IpMode": "Dhcp",
+      "IpAddress": "172.31.254.240",
+      "SubnetMask": "255.255.255.0",
+      "DefaultGateway": "172.31.254.2",
+      "MacAddress": "00:0E:DD:51:62:E4"
+    }
+  },
+  {
+    "EqContour": "HighPass",
+    "LedSettings": {
+      "LedMute": {
+        "LedBehavior": "SolidOn",
+        "LedColor": "Red"
+      },
+      "LedUnmute": {
+        "LedBehavior": "SolidOn",
+        "LedColor": "Green"
+      },
+      "EthernetLedStatus": true,
+      "LedBrightnessPercentage": 100
+    },
+    "BypassAllEq": false,
+    "ArrayHeight": 274000,
+    "LowShelfFilterEnabled": false,
+    "LobeChannels": [
+      {
+        "Lobe": {
+          "AxisX": 183000,
+          "AxisY": 122039,
+          "Width": "Medium",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 1"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 0,
+        "Name": "Channel 1",
+        "Label": "Output 1"
+      },
+      {
+        "Lobe": {
+          "AxisX": 0,
+          "AxisY": 137279,
+          "Width": "Wide",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 2"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 1,
+        "Name": "Channel 2",
+        "Label": "Output 2"
+      },
+      {
+        "Lobe": {
+          "AxisX": -183000,
+          "AxisY": 122039,
+          "Width": "Medium",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 3"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 2,
+        "Name": "Channel 3",
+        "Label": "Output 3"
+      },
+      {
+        "Lobe": {
+          "AxisX": -304681,
+          "AxisY": 0,
+          "Width": "Narrow",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 4"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 3,
+        "Name": "Channel 4",
+        "Label": "Output 4"
+      },
+      {
+        "Lobe": {
+          "AxisX": -183000,
+          "AxisY": -122039,
+          "Width": "Medium",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 5"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 4,
+        "Name": "Channel 5",
+        "Label": "Output 5"
+      },
+      {
+        "Lobe": {
+          "AxisX": 0,
+          "AxisY": -137279,
+          "Width": "Wide",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 6"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 5,
+        "Name": "Channel 6",
+        "Label": "Output 6"
+      },
+      {
+        "Lobe": {
+          "AxisX": 183000,
+          "AxisY": -122039,
+          "Width": "Medium",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 7"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 6,
+        "Name": "Channel 7",
+        "Label": "Output 7"
+      },
+      {
+        "Lobe": {
+          "AxisX": 304919,
+          "AxisY": 0,
+          "Width": "Narrow",
+          "TalkerHeight": 121000
+        },
+        "AudioEnabled": true,
+        "Type": "MxaMic",
+        "DanteSettings": {
+          "DanteEncryptionStatus": "Inactive",
+          "DanteName": "Channel 8"
+        },
+        "AudioGain": 0.0,
+        "AudioMute": false,
+        "Index": 7,
+        "Name": "Channel 8",
+        "Label": "Output 8"
+      }
+    ],
+    "MixChannel": {
+      "Type": "Mix",
+      "DanteSettings": {
+        "DanteEncryptionStatus": "Inactive",
+        "DanteName": "Automix Out"
+      },
+      "AudioGain": 0.0,
+      "AudioMute": false,
+      "Index": 0,
+      "Name": "Automix Out",
+      "Label": "Mix 1"
+    },
+    "Uptime": "1456:01:33",
+    "PasswordSet": false,
+    "DeviceAudioMute": false,
+    "DanteNetworkInfo": {
+      "IpMode": "Dhcp",
+      "IpAddress": "172.31.254.211",
+      "SubnetMask": "255.255.255.0",
+      "DefaultGateway": "172.31.254.2",
+      "MacAddress": "00:0E:DD:F6:22:04"
+    },
+    "DanteSettings": {
+      "DeviceName": "MXA910-f62204",
+      "EncryptionEnabled": false,
+      "EncryptionPassphraseSet": false,
+      "DeviceNameConflict": false,
+      "ClockSyncError": false
+    },
+    "ActivePresetIndex": 255,
+    "HardwareId": "dd602237-0000-11dd-a000-000eddcccccc",
+    "Model": "MXA910",
+    "DeviceVersion": 16,
+    "FirmwareVersion": "3.1.5",
+    "Name": "MXA910-602237",
+    "SerialNumber": "2SA0339908",
+    "ControlNetworkInfo": {
+      "IpMode": "Dhcp",
+      "IpAddress": "172.31.254.218",
+      "SubnetMask": "255.255.255.0",
+      "DefaultGateway": "172.31.254.2",
+      "MacAddress": "00:0E:DD:60:22:37"
+    }
+  }
+]

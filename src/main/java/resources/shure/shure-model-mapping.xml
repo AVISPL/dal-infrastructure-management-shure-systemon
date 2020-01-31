@@ -1,0 +1,54 @@
+<root>
+    <model vendor="shure" name="generic">
+        <properties>
+            <property name="BypassAllEq" ref="BypassAllEq"/>
+            <property name="PasswordSet" ref="PasswordSet"/>
+            <property name="Mute" ref="DeviceAudioMute"/>
+            <property name="ActivePresetIndex" ref="ActivePresetIndex"/>
+            <property name="DeviceVersion" ref="DeviceVersion"/>
+            <property name="Encryption" ref="DanteSettings.EncryptionEnabled"/>
+            <property name="EncryptionPassphraseSet" ref="DanteSettings.EncryptionPassphraseSet"/>
+            <property name="IpMode" ref="ControlNetworkInfo.IpMode"/>
+            <property name="IpAddress" ref="ControlNetworkInfo.IpAddress"/>
+            <property name="SubnetMask" ref="ControlNetworkInfo.SubnetMask"/>
+            <property name="DefaultGateway" ref="ControlNetworkInfo.DefaultGateway"/>
+            <property name="Reboot" ref="Reboot"/>
+            <property name="Reset" ref="Reset"/>
+        </properties>
+        <statistic>
+            <property name="DeviceNameConflict" ref="DanteSettings.DeviceNameConflict"/>
+            <property name="ClockSyncError" ref="DanteSettings.ClockSyncError"/>
+            <property name="Uptime" ref="Uptime"/>
+        </statistic>
+        <mapping>
+            <property name="deviceModel" ref="Model"/>
+            <property name="deviceId" ref="HardwareId"/>
+            <property name="deviceName" ref="DanteSettings.DeviceName"/>
+            <property name="serialNumber" ref="SerialNumber"/>
+            <property name="macAddresses"
+                      ref="ControlNetworkInfo.MacAddress"/>
+            <property name="deviceType" value="Microphone"/>
+            <property name="deviceOnline" value="true"/>
+            <property name="deviceMake" value="Shure"/>
+        </mapping>
+        <control>
+            <property name="Mute" value="Toggle"/>
+            <property name="Encryption" value="Toggle"/>
+            <property name="Reboot" value="Push"/>
+            <property name="Reset" value="Push"/>
+        </control>
+    </model>
+
+    <!-- inherits generic properties -->
+    <model vendor="shure" name="MXA310">
+        <properties>
+            <property name="EnableLowCutFilter" ref="EnableLowCutFilter"/>
+        </properties>
+        <control>
+            <property name="EnableLowCutFilter" value="Toggle"/>
+        </control>
+    </model>
+
+    <model vendor="shure" name="MXA910">
+    </model>
+</root>

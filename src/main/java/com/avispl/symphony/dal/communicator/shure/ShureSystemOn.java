@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 AVI-SPL Inc. All Rights Reserved.
+ * Copyright (c) 2019-2020 AVI-SPL Inc. All Rights Reserved.
  */
 package com.avispl.symphony.dal.communicator.shure;
 
@@ -39,15 +39,23 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     private Map<String, PropertiesMapping> models = emptyMap();
 
-
     /**
      * Constructor
      */
     public ShureSystemOn() {
         // override default value to trust all certificates - MCUs typically do not have trusted certificates installed
         // it can be changed back by configuration
-        System.out.println("Shure SystemON instantiated");
         setTrustAllCertificates(true);
+    }
+
+    public static void main(String[] args) throws Exception {
+        ShureSystemOn communicator = new ShureSystemOn();
+        communicator.setHost("172.31.254.17");
+        communicator.setPort(10000);
+        communicator.init();
+
+        List<AggregatedDevice> aggregatedDevices = communicator.retrieveMultipleStatistics();
+        System.out.println("aggregatedDevices = " + aggregatedDevices);
     }
 
     /**
@@ -57,7 +65,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     protected void internalInit() throws Exception {
         super.internalInit();
         //Load models properties mapping
-        System.out.println("Shure SystemON internalInit");
         models = new PropertiesMappingParser().load("shure/shure-model-mapping.xml");
     }
 
@@ -77,7 +84,11 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         String property = controllableProperty.getProperty();
         Object value = controllableProperty.getValue();
         String deviceId = controllableProperty.getDeviceId();
-        System.out.println("Shure SystemON controlProperty " + property);
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn controlProperty property=" + property + " value=" +
+                    " deviceId=" + deviceId);
+        }
         switch (property) {
             case "EnableLowCutFilter":
                 enableLowCutFilter(deviceId, (int) value == 1);
@@ -119,11 +130,20 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      */
     @Override
     public List<AggregatedDevice> retrieveMultipleStatistics() throws Exception {
-        JsonNode properties = doGet("/api/devices", JsonNode.class);
-        System.out.println("Shure SystemON retrieveMultipleStatistics");
-        return StreamSupport.stream(properties.spliterator(), false)
+        JsonNode properties = doGet("/api/v1.0/devices", JsonNode.class);
+        List<AggregatedDevice> statistics = StreamSupport.stream(properties.spliterator(), false)
                 .map(this::parseAggregatedDevice)
                 .collect(toList());
+
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn retrieveMultipleStatistics statistics.size=" + statistics.size());
+            for (AggregatedDevice device : statistics) {
+
+                logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
+                        " DeviceModel=" + device.getDeviceModel());
+            }
+        }
+        return statistics;
     }
 
     /**
@@ -137,7 +157,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         AggregatedDevice device = new AggregatedDevice();
 
         //get device model
-        String model = node.findPath("Model").asText();
+        String model = node.findPath("model").asText();
 
         //find model properties mapping
         PropertiesMapping mapping = models.getOrDefault(model, models.get(DEFAULT_MODEL));
@@ -149,6 +169,12 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         AggregatedDeviceProcessor aggregatedDeviceProcessor = new AggregatedDeviceProcessor(mapping);
         aggregatedDeviceProcessor.applyProperties(device, node);
 
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn parseAggregatedDevice model=" + model +
+                    " node=" + node.toString() +
+                    " mapping=" + mapping.toString());
+        }
+
         return device;
     }
 
@@ -157,7 +183,9 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      */
     @Override
     public List<AggregatedDevice> retrieveMultipleStatistics(List<String> deviceIds) throws Exception {
-        System.out.println("Shure SystemON retrieveMultipleStatistics");
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn retrieveMultipleStatistics deviceIds=" + String.join(" ", deviceIds));
+        }
         return retrieveMultipleStatistics()
                 .stream()
                 .filter(aggregatedDevice -> deviceIds.contains(aggregatedDevice.getDeviceId()))
@@ -174,7 +202,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     private void enableLowCutFilter(String deviceId, boolean value) throws Exception {
         String model = device(deviceId).getDeviceModel().toLowerCase();
         String body = String.format("{ \"EnableLowCutFilter\": \"%s\" }", value);
-        doPatch(String.format("/api/devices/%s/%s", model, deviceId), body);
+        doPatch(String.format("/api/v1.0/devices/%s/%s", model, deviceId), body);
     }
 
     /**
@@ -187,7 +215,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     private void bypassAllEq(String deviceId, boolean value) throws Exception {
         String model = device(deviceId).getDeviceModel().toLowerCase();
         String body = String.format("{ \"BypassAllEq\": \"%s\" }", value);
-        doPatch(String.format("/api/devices/%s/%s", model, deviceId), body);
+        doPatch(String.format("/api/v1.0/devices/%s/%s", model, deviceId), body);
     }
 
     /**
@@ -211,8 +239,8 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * @throws Exception
      */
     private void mute(String deviceId, boolean value) throws Exception {
-        String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ], \"MuteSet\": \"%s\" }", deviceId, value);
-        doPatch("/api/devices/audio/mute", body);
+        String body = String.format("{ \"muteState\": \"%s\" }", value);
+        doPatch(String.format("/api/v1.0/devices/%s/audio/mute", deviceId), body);
     }
 
 
@@ -224,8 +252,13 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * @throws Exception
      */
     private void encryption(String deviceId, boolean value) throws Exception {
-        String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ], \"EnableEncryption\": \"%s\" }", deviceId, value);
-        doPatch("/api/devices/encryption/audio", body);
+        String state;
+        if (value) {
+            state = "enable";
+        } else {
+            state = "disable";
+        }
+        doPatch(String.format("/api/v1.0/devices/%s/encryption/audio/%s", deviceId, state), null);
     }
 
     /**
@@ -236,7 +269,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      */
     private void reboot(String deviceId) throws Exception {
         String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ] }", deviceId);
-        doPatch("/api/devices/reboot", body);
+        doPatch("/api/v1.0/devices/reboot", body);
     }
 
     /**
@@ -247,6 +280,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      */
     private void reset(String deviceId) throws Exception {
         String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ] }", deviceId);
-        doPatch("/api/devices/reset", body);
+        doPatch("/api/v1.0/devices/reset", body);
     }
 }

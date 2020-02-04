@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 AVI-SPL Inc. All Rights Reserved.
+ * Copyright (c) 2019-2020 AVI-SPL Inc. All Rights Reserved.
  */
 package com.avispl.symphony.dal.communicator.shure.parser;
 
@@ -8,17 +8,15 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * Description of shure model properties
+ * Description of Shure model properties
  */
 public class PropertiesMapping {
-
 
     private final Map<String, String> properties;
     private final Map<String, String> statistics;
     private final Map<String, String> deviceProperties;
     private final Map<String, String> predefinedProperties;
     private final Map<String, String> controlProperties;
-
 
     /**
      * Constructs the statistic mapping holder containing the {@code properties, statistics, deviceProperties, hardcodedProperties, control}
@@ -39,8 +37,6 @@ public class PropertiesMapping {
         this.deviceProperties = deviceProperties;
         this.predefinedProperties = predefinedProperties;
         this.controlProperties = controlProperties;
-
-
     }
 
     @Override

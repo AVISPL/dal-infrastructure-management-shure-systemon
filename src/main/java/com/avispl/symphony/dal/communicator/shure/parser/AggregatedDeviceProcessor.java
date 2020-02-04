@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 AVI-SPL Inc. All Rights Reserved.
+ * Copyright (c) 2019-2020 AVI-SPL Inc. All Rights Reserved.
  */
 package com.avispl.symphony.dal.communicator.shure.parser;
 
@@ -20,7 +20,6 @@ import static java.util.stream.Collectors.toMap;
 
 public class AggregatedDeviceProcessor {
     private final static Log log = LogFactory.getLog(AggregatedDeviceProcessor.class);
-
 
     private final BeanUtilsBean beanUtilsBean;
     private final PropertiesMapping propertiesMapping;
@@ -45,7 +44,6 @@ public class AggregatedDeviceProcessor {
         }, List.class);
         return beanUtilsBean;
     }
-
 
     /**
      * Set all of the {@code device} properties with {@code node} values

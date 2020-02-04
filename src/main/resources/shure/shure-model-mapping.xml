@@ -1,0 +1,54 @@
+<root>
+    <model vendor="shure" name="generic">
+        <properties>
+            <property name="BypassAllEq" ref="bypassAllEq"/>
+            <property name="PasswordSet" ref="passwordSet"/>
+            <property name="Mute" ref="audioMute"/>
+            <property name="ActivePresetIndex" ref="activePresetIndex"/>
+            <property name="FirmwareVersion" ref="firmwareVersion"/>
+            <property name="Version" ref="version"/>
+            <property name="Encryption" ref="danteEncryptionEnabled"/>
+            <property name="EncryptionPassphraseSet" ref="danteEncryptionPassphraseSet"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Reboot" ref="Reboot"/>
+            <property name="Reset" ref="Reset"/>
+        </properties>
+        <statistic>
+            <property name="DeviceNameConflict" ref="danteDeviceNameConflict"/>
+            <property name="ClockSyncError" ref="danteClockSyncError"/>
+            <property name="Uptime" ref="uptime"/>
+        </statistic>
+        <mapping>
+            <property name="deviceModel" ref="model"/>
+            <property name="deviceId" ref="hardwareId"/>
+            <property name="deviceName" ref="deviceName"/>
+            <property name="serialNumber" ref="serialNumber"/>
+            <property name="macAddresses" ref="macAddress"/>
+            <property name="deviceType" value="Microphone"/>
+            <property name="deviceOnline" value="true"/>
+            <property name="deviceMake" value="Shure"/>
+        </mapping>
+        <control>
+            <property name="Mute" value="Toggle"/>
+            <property name="Encryption" value="Toggle"/>
+            <property name="Reboot" value="Push"/>
+            <property name="Reset" value="Push"/>
+        </control>
+    </model>
+
+    <!-- inherits generic properties -->
+    <model vendor="shure" name="MXA310">
+        <properties>
+            <property name="EqualizerFilters" ref="equalizerFilters.enabled"/>
+        </properties>
+        <control>
+            <property name="EqualizerFilters" value="Toggle"/>
+        </control>
+    </model>
+
+    <model vendor="shure" name="MXA910">
+    </model>
+</root>

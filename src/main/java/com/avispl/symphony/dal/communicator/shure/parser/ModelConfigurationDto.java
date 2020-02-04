@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 AVI-SPL Inc. All Rights Reserved.
+ * Copyright (c) 2019-2020 AVI-SPL Inc. All Rights Reserved.
  */
 package com.avispl.symphony.dal.communicator.shure.parser;
 

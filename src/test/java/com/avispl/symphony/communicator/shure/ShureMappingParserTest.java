@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.entry;
 
 public class ShureMappingParserTest {
 
-    private static final String testXmlBasePath = "shure/";
+    private static final String testXmlBasePath = "shure_beta/";
     private PropertiesMappingParser propertiesMappingParser;
 
     @Before

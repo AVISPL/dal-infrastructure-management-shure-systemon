@@ -150,7 +150,6 @@ public class ModelConfigurationDto {
         }
     }
 
-
     @Override
     public String toString() {
         return "ModelConfigurationDto: " + models.stream().map(Model::toString).collect(Collectors.joining("\n"));

@@ -27,9 +27,9 @@ public class PropertiesMappingParser {
 
     public Map<String, PropertiesMapping> load(String name) throws Exception {
         ModelConfigurationDto configuration;
-		try (InputStream stream = getClass().getClassLoader().getResourceAsStream(name)) {
-			configuration = JAXB.unmarshal(stream, ModelConfigurationDto.class);
-		}
+        try (InputStream stream = getClass().getClassLoader().getResourceAsStream(name)) {
+            configuration = JAXB.unmarshal(stream, ModelConfigurationDto.class);
+        }
 
         ModelConfigurationDto.Model generic = configuration.getModels()
                 .stream()
@@ -37,11 +37,8 @@ public class PropertiesMappingParser {
                 .findAny()
                 .orElseThrow(() -> new RuntimeException("Generic model was not found"));
 
-        return configuration.getModels()
-                .stream()
-                .collect(toMap(
-                        ModelConfigurationDto.Model::getName,
-                        m -> toStatisticsMapping(m, generic)));
+        return configuration.getModels().stream().collect(toMap(ModelConfigurationDto.Model::getName,
+                m -> toStatisticsMapping(m, generic)));
     }
 
     private PropertiesMapping toStatisticsMapping(ModelConfigurationDto.Model model, ModelConfigurationDto.Model generic) {
@@ -79,93 +76,5 @@ public class PropertiesMappingParser {
                 .collect(toMap(
                         ModelConfigurationDto.Property::getName,
                         ModelConfigurationDto.Property::getValue));
-    }
-
-    public Map<String, PropertiesMapping> load() {
-        PropertiesMapping mxa310Mapping = new PropertiesMapping(
-                ImmutableMap.<String, String>builder()
-                        .put("BypassAllEq", "bypassAllEq")
-                        .put("EqualizerFilters", "equalizerFilters.enabled")
-                        .put("PasswordSet", "passwordSet")
-                        .put("Mute", "audioMute")
-                        .put("ActivePresetIndex", "activePresetIndex")
-                        .put("FirmwareVersion", "firmwareVersion")
-                        .put("Version", "version")
-                        .put("Encryption", "danteEncryptionEnabled")
-                        .put("EncryptionPassphraseSet", "danteEncryptionPassphraseSet")
-                        .put("IpMode", "ipMode")
-                        .put("IpAddress", "currentIpAddress")
-                        .put("SubnetMask", "currentSubnetMask")
-                        .put("Gateway", "currentGateway")
-                        .put("Reboot", "Reboot")
-                        .put("Reset", "Reset")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("DeviceNameConflict", "danteDeviceNameConflict")
-                        .put("ClockSyncError", "danteClockSyncError")
-                        .put("Uptime", "uptime")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("deviceModel", "model")
-                        .put("deviceId", "hardwareId")
-                        .put("deviceName", "deviceName")
-                        .put("serialNumber", "serialNumber")
-                        .put("macAddresses", "macAddress")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("deviceType", "Microphone")
-                        .put("deviceOnline", "true")
-                        .put("deviceMake", "Shure")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("Mute", "Toggle")
-                        .put("Encryption", "Toggle")
-                        .put("EnableLowCutFilter", "Toggle")
-                        .put("Reboot", "Push")
-                        .put("Reset", "Push")
-                        .build());
-
-        PropertiesMapping mxa910Mapping = new PropertiesMapping(
-                ImmutableMap.<String, String>builder()
-                        .put("BypassAllEq", "bypassAllEq")
-                        .put("PasswordSet", "passwordSet")
-                        .put("Mute", "audioMute")
-                        .put("ActivePresetIndex", "activePresetIndex")
-                        .put("FirmwareVersion", "firmwareVersion")
-                        .put("Version", "version")
-                        .put("Encryption", "danteEncryptionEnabled")
-                        .put("EncryptionPassphraseSet", "danteEncryptionPassphraseSet")
-                        .put("IpMode", "ipMode")
-                        .put("IpAddress", "currentIpAddress")
-                        .put("SubnetMask", "currentSubnetMask")
-                        .put("Gateway", "currentGateway")
-                        .put("Reboot", "Reboot")
-                        .put("Reset", "Reset")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("DeviceNameConflict", "danteDeviceNameConflict")
-                        .put("ClockSyncError", "danteClockSyncError")
-                        .put("Uptime", "uptime")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("deviceModel", "model")
-                        .put("deviceId", "hardwareId")
-                        .put("deviceName", "deviceName")
-                        .put("serialNumber", "serialNumber")
-                        .put("macAddresses", "macAddress")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("deviceType", "Microphone")
-                        .put("deviceOnline", "true")
-                        .put("deviceMake", "Shure")
-                        .build(),
-                ImmutableMap.<String, String>builder()
-                        .put("Mute", "Toggle")
-                        .put("Encryption", "Toggle")
-                        .put("Reboot", "Push")
-                        .put("Reset", "Push")
-                        .build());
-
-        return ImmutableMap.of("default", mxa310Mapping, "MXA310", mxa310Mapping, "MXA910", mxa910Mapping);
     }
 }

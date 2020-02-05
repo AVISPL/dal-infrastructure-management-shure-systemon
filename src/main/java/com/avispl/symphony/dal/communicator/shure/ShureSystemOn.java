@@ -65,7 +65,13 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     protected void internalInit() throws Exception {
         super.internalInit();
         //Load models properties mapping
-        models = new PropertiesMappingParser().load("shure_beta/shure-model-mapping.xml");
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn internalInit start; models size=" + models.size());
+        }
+        models = new PropertiesMappingParser().load("shure/model-mapping.xml");
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn internalInit end; models size=" + models.size());
+        }
     }
 
 
@@ -86,7 +92,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         String deviceId = controllableProperty.getDeviceId();
 
         if (logger.isDebugEnabled()) {
-            logger.debug("ShureSystemOn controlProperty property=" + property + " value=" +
+            logger.debug("ShureSystemOn controlProperty property=" + property + " value=" + value +
                     " deviceId=" + deviceId);
         }
         switch (property) {
@@ -171,9 +177,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
         if (logger.isDebugEnabled()) {
             logger.debug("ShureSystemOn parseAggregatedDevice model=" + model +
-                    " node=" + node.toString() +
                     " mapping=" + mapping.toString());
         }
+        System.out.println("ShureSystemOn parseAggregatedDevice model=" + model +
+                " mapping=" + mapping.toString());
 
         return device;
     }

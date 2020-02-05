@@ -3,7 +3,7 @@
         <properties>
             <property name="BypassAllEq" ref="bypassAllEq"/>
             <property name="PasswordSet" ref="passwordSet"/>
-            <property name="Mute" ref="audioMute"/>
+            <property name="Mute" ref="deviceMute"/>
             <property name="ActivePresetIndex" ref="activePresetIndex"/>
             <property name="FirmwareVersion" ref="firmwareVersion"/>
             <property name="Version" ref="version"/>
@@ -24,7 +24,7 @@
         <mapping>
             <property name="deviceModel" ref="model"/>
             <property name="deviceId" ref="hardwareId"/>
-            <property name="deviceName" ref="deviceName"/>
+            <property name="deviceName" ref="dante.deviceName"/>
             <property name="serialNumber" ref="serialNumber"/>
             <property name="macAddresses" ref="macAddress"/>
             <property name="deviceType" value="Microphone"/>

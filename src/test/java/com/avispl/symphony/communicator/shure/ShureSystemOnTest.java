@@ -8,6 +8,7 @@ import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.io.Resources;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -21,6 +22,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
+@Ignore
 public class ShureSystemOnTest {
     @Rule
     public WireMockRule service = new WireMockRule(WireMockConfiguration.DYNAMIC_PORT);
@@ -33,8 +35,8 @@ public class ShureSystemOnTest {
 
     public static void main(String[] args) throws Exception {
         ShureSystemOn communicator = new ShureSystemOn();
-        communicator.setHost("localhost");
-        communicator.setPort(5000);
+        communicator.setHost("172.31.254.17");
+        communicator.setPort(10000);
         communicator.init();
 
         List<AggregatedDevice> aggregatedDevices = communicator.retrieveMultipleStatistics();
@@ -44,7 +46,7 @@ public class ShureSystemOnTest {
     @Before
     public void setUp() throws Exception {
         service.stubFor(get(urlEqualTo("/api/devices")))
-                .setResponse(okJson(resource("shure_beta/devices-response.json")).build());
+                .setResponse(okJson(resource("shure/devices-response.json")).build());
 
         service.stubFor(patch(urlMatching("/api/devices/.*"))).setResponse(ok().build());
 

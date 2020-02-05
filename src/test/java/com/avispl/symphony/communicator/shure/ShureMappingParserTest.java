@@ -3,6 +3,7 @@ package com.avispl.symphony.communicator.shure;
 import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMapping;
 import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMappingParser;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -10,9 +11,10 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.entry;
 
+@Ignore
 public class ShureMappingParserTest {
 
-    private static final String testXmlBasePath = "shure_beta/";
+    private static final String testXmlBasePath = "shure/";
     private PropertiesMappingParser propertiesMappingParser;
 
     @Before

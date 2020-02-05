@@ -27,7 +27,7 @@ public class PropertiesMappingParser {
 
     public Map<String, PropertiesMapping> load(String name) throws Exception {
         ModelConfigurationDto configuration;
-		try (InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(name)) {
+		try (InputStream stream = getClass().getClassLoader().getResourceAsStream(name)) {
 			configuration = JAXB.unmarshal(stream, ModelConfigurationDto.class);
 		}
 

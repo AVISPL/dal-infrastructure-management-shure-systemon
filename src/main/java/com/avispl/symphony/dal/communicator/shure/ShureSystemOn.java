@@ -65,7 +65,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     protected void internalInit() throws Exception {
         super.internalInit();
         //Load models properties mapping
-        models = new PropertiesMappingParser().load("shure/shure-model-mapping.xml");
+        models = new PropertiesMappingParser().load("shure_beta/shure-model-mapping.xml");
     }
 
 

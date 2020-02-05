@@ -44,7 +44,7 @@ public class ShureSystemOnTest {
     @Before
     public void setUp() throws Exception {
         service.stubFor(get(urlEqualTo("/api/devices")))
-                .setResponse(okJson(resource("shure/devices-response.json")).build());
+                .setResponse(okJson(resource("shure_beta/devices-response.json")).build());
 
         service.stubFor(patch(urlMatching("/api/devices/.*"))).setResponse(ok().build());
 

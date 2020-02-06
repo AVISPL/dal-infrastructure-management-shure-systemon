@@ -14,16 +14,18 @@ import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMapping;
 import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMappingParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.ImmutableList;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.util.CollectionUtils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.stream.StreamSupport;
 
 import static com.avispl.symphony.dal.communicator.shure.parser.PropertiesMappingParser.DEFAULT_MODEL;
 import static java.util.Collections.emptyMap;
+import static java.util.concurrent.CompletableFuture.runAsync;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -35,9 +37,8 @@ import static java.util.stream.Collectors.toList;
  */
 public class ShureSystemOn extends RestCommunicator implements Aggregator, Controller {
 
-    private final static Log log = LogFactory.getLog(ShureSystemOn.class);
-
     private Map<String, PropertiesMapping> models = emptyMap();
+    private List<String> modelsWithoutInitialize = Arrays.asList("MXWAPT2", "MXW6", "MXWNCS2");
 
     /**
      * Constructor
@@ -54,8 +55,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         communicator.setPort(10000);
         communicator.init();
 
+        long startTime = System.currentTimeMillis();
         List<AggregatedDevice> aggregatedDevices = communicator.retrieveMultipleStatistics();
         System.out.println("aggregatedDevices = " + aggregatedDevices);
+        System.out.println("Time = " + (System.currentTimeMillis() - startTime) + " ms");
     }
 
     /**
@@ -149,7 +152,41 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
                         " DeviceModel=" + device.getDeviceModel());
             }
         }
+
+        initShureDevices(statistics);
+
         return statistics;
+    }
+
+    /**
+     * Initialize Shure networked devices. It need do before call any control API
+     *
+     * @param statistics Devices statistics
+     */
+    private void initShureDevices(List<AggregatedDevice> statistics) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        statistics.forEach(device -> initShureDevice(device, executor));
+        executor.shutdownNow();
+    }
+
+    /**
+     * Initialize Shure networked device
+     * /api/v1.0/devices/{hardwareId}/initialize
+     *
+     * @param device   Shure device
+     * @param executor Adapter cached thread pool
+     */
+    private void initShureDevice(AggregatedDevice device, ExecutorService executor) {
+        if (!modelsWithoutInitialize.contains(device.getDeviceModel())) {
+            runAsync(() -> {
+                try {
+                    doPost(String.format("/api/v1.0/devices/%s/initialize", device.getDeviceId()), null);
+                    System.out.println("do post initialize device=" + device.getDeviceId());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }, executor).join();
+        }
     }
 
     /**

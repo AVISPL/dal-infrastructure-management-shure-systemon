@@ -98,12 +98,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
             logger.debug("ShureSystemOn controlProperty property=" + property + " value=" + value +
                     " deviceId=" + deviceId);
         }
+
         switch (property) {
-            case "EnableLowCutFilter":
-                enableLowCutFilter(deviceId, (int) value == 1);
-                break;
             case "BypassAllEq":
-                bypassAllEq(deviceId, (int) value == 1);
+                automixerBypass(deviceId);
                 break;
             case "Mute":
                 mute(deviceId, (int) value == 1);
@@ -115,7 +113,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
                 reboot(deviceId);
                 break;
             case "Reset":
-                reset(deviceId);
+                defaultsReset(deviceId);
                 break;
         }
     }
@@ -237,29 +235,18 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     }
 
     /**
-     * Enable low cut filter
-     *
-     * @param deviceId device is
-     * @param value    property status
-     * @throws Exception
-     */
-    private void enableLowCutFilter(String deviceId, boolean value) throws Exception {
-        String model = device(deviceId).getDeviceModel().toLowerCase();
-        String body = String.format("{ \"EnableLowCutFilter\": \"%s\" }", value);
-        doPatch(String.format("/api/v1.0/devices/%s/%s", model, deviceId), body);
-    }
-
-    /**
-     * Send BypassAllEq to device
+     * Bypass the automixer settings on device
      *
      * @param deviceId device id
-     * @param value    property status
      * @throws Exception
      */
-    private void bypassAllEq(String deviceId, boolean value) throws Exception {
-        String model = device(deviceId).getDeviceModel().toLowerCase();
-        String body = String.format("{ \"BypassAllEq\": \"%s\" }", value);
-        doPatch(String.format("/api/v1.0/devices/%s/%s", model, deviceId), body);
+    private void automixerBypass(String deviceId) throws Exception {
+        doPut(String.format("/api/v1.0/devices/%s/automixer/bypass", deviceId), null);
+    }
+
+    private void setProperty(String deviceId, String property, String value) throws Exception {
+        String body = String.format("{ \"propertyPath\": \"%s\",  \"value\": { \"%s\" }}", property, value);
+        doPut(String.format("/api/v1.0/devices/%s/property", deviceId), body);
     }
 
     /**
@@ -289,7 +276,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
 
     /**
-     * Send enable encryption to device
+     * Send enable/disable audio encryption to device
      *
      * @param deviceId device id
      * @param value    property status
@@ -312,18 +299,16 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * @throws Exception
      */
     private void reboot(String deviceId) throws Exception {
-        String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ] }", deviceId);
-        doPatch("/api/v1.0/devices/reboot", body);
+        doPost(String.format("/api/v1.0/devices/%s/maintenance/reboot", deviceId), null);
     }
 
     /**
-     * Send reset command to device
+     * Send reset all user presets command to device
      *
      * @param deviceId device id
      * @throws Exception
      */
-    private void reset(String deviceId) throws Exception {
-        String body = String.format("{ \"DeviceHardwareIds\": [ \"%s\" ] }", deviceId);
-        doPatch("/api/v1.0/devices/reset", body);
+    private void defaultsReset(String deviceId) throws Exception {
+        doPost(String.format("/api/v1.0/devices/%s/maintenance/defaultsreset", deviceId), null);
     }
 }

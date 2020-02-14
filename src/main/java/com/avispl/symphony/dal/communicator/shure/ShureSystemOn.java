@@ -49,18 +49,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         setTrustAllCertificates(true);
     }
 
-    public static void main(String[] args) throws Exception {
-        ShureSystemOn communicator = new ShureSystemOn();
-        communicator.setHost("172.31.254.17");
-        communicator.setPort(10000);
-        communicator.init();
-
-        long startTime = System.currentTimeMillis();
-        List<AggregatedDevice> aggregatedDevices = communicator.retrieveMultipleStatistics();
-        System.out.println("aggregatedDevices = " + aggregatedDevices);
-        System.out.println("Time = " + (System.currentTimeMillis() - startTime) + " ms");
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -68,13 +56,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     protected void internalInit() throws Exception {
         super.internalInit();
         //Load models properties mapping
-        if (logger.isDebugEnabled()) {
-            logger.debug("ShureSystemOn internalInit start; models size=" + models.size());
-        }
         models = new PropertiesMappingParser().load("shure/model-mapping.xml");
-        if (logger.isDebugEnabled()) {
-            logger.debug("ShureSystemOn internalInit end; models size=" + models.size());
-        }
     }
 
 
@@ -210,10 +192,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         AggregatedDeviceProcessor aggregatedDeviceProcessor = new AggregatedDeviceProcessor(mapping);
         aggregatedDeviceProcessor.applyProperties(device, node);
 
-        if (logger.isDebugEnabled()) {
-            logger.debug("ShureSystemOn parseAggregatedDevice model=" + model +
-                    " mapping=" + mapping.toString());
-        }
         System.out.println("ShureSystemOn parseAggregatedDevice model=" + model +
                 " mapping=" + mapping.toString());
 

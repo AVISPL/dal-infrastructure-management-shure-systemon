@@ -39,15 +39,19 @@
         </control>
     </model>
 
+<!--    EqualizerFilters and HighPassFilter not implemented in SystemOn api now -->
     <!-- inherits generic properties -->
-    <model vendor="shure" name="MXA310">
-        <properties>
-            <property name="EqualizerFilters" ref="equalizerFilters.enabled"/>
-        </properties>
-        <control>
-            <property name="EqualizerFilters" value="Toggle"/>
-        </control>
-    </model>
+<!--    <model vendor="shure" name="MXA310">-->
+<!--        <properties>-->
+<!--            Now not supported by SystemOn API -->
+<!--            <property name="EqualizerFilters" ref="equalizerFilters.enabled"/>-->
+<!--            <property name="HighPassFilter" ref="highPassFilterEnable"/>-->
+<!--        </properties>-->
+<!--        <control>-->
+<!--            <property name="EqualizerFilters" value="Toggle"/>-->
+<!--            <property name="HighPassFilter" value="Toggle"/>-->
+<!--        </control>-->
+<!--    </model>-->
 
     <model vendor="shure" name="MXA910">
     </model>

@@ -14,6 +14,8 @@ import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMapping;
 import com.avispl.symphony.dal.communicator.shure.parser.PropertiesMappingParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.google.common.collect.ImmutableList;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Arrays;
@@ -127,7 +129,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         if (logger.isDebugEnabled()) {
             logger.debug("ShureSystemOn retrieveMultipleStatistics statistics.size=" + statistics.size());
             for (AggregatedDevice device : statistics) {
-
                 logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
                         " DeviceModel=" + device.getDeviceModel());
             }
@@ -136,6 +137,24 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         initShureDevices(statistics);
 
         return statistics;
+    }
+
+    /**
+     * Add authorization and content-type headers for requests
+     */
+    @Override
+    protected HttpHeaders putExtraRequestHeaders(HttpMethod httpMethod, String uri, HttpHeaders headers) {
+        headers.set("accept", "application/json");
+        String apiKey = getPassword();
+        if (apiKey != null && !apiKey.isEmpty()) {
+            headers.set("Authorization", apiKey);
+        }
+
+        if (!httpMethod.equals(HttpMethod.GET)) {
+            headers.set("Content-Type", "application/json");
+        }
+
+        return headers;
     }
 
     /**

@@ -9,7 +9,6 @@ import com.google.common.io.Resources;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -44,6 +43,7 @@ public class ShureSystemOnTest {
         shureSystemOn = new ShureSystemOn();
         shureSystemOn.setHost("localhost");
         shureSystemOn.setPort(service.port());
+        shureSystemOn.setPassword("test");
         shureSystemOn.init();
     }
 

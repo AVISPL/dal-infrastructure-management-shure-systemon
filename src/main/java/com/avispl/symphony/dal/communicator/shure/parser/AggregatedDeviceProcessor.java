@@ -69,15 +69,10 @@ public class AggregatedDeviceProcessor {
      * @return node value
      */
     private String findPath(JsonNode node, String path) {
-        String[] nodeNames = path.split("\\.");
-        for (String nodeName : nodeNames) {
-            List<JsonNode> nodeParents = node.findParents(nodeName);
-            for (JsonNode nodes : nodeParents) {
-                String value = nodes.findPath(nodeName).asText();
-                if (!value.isEmpty()) {
-                    return value;
-                }
-            }
+        String pointer = String.format("/%s", path.replace(".", "/"));
+        String value = node.at(pointer).asText();
+        if (!value.isEmpty()) {
+            return value;
         }
         return node.asText();
     }

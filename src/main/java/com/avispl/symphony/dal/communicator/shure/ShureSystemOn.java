@@ -90,7 +90,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
             case "Mute":
                 mute(deviceId, (int) value == 1);
                 break;
-            case "Encryption":
+            case "DanteEncryption":
                 encryption(deviceId, (int) value == 1);
                 break;
             case "Reboot":
@@ -199,7 +199,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         AggregatedDevice device = new AggregatedDevice();
 
         //get device model
-        String model = node.findPath("model").asText();
+        String model = node.at("/model").asText();
 
         //find model properties mapping
         PropertiesMapping mapping = models.getOrDefault(model, models.get(DEFAULT_MODEL));

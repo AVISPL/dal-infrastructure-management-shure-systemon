@@ -51,17 +51,14 @@ public class ShureSystemOnTest {
     public void retrieveMultipleStatisticsTest() throws Exception {
         List<AggregatedDevice> devices = shureSystemOn.retrieveMultipleStatistics();
 
-        assertThat(devices)
-                .isNotEmpty()
-                .hasSize(9);
+        assertThat(devices).isNotEmpty().hasSize(9);
 
         AggregatedDevice device = devices.get(0);
 
         assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics");
         assertThat(device.getProperties()).isNotEmpty();
-        assertThat(device.getStatistics()).isNotEmpty();
-        assertThat(device.getControl()).isNotEmpty();
-        assertThat(device.getProperties().get("Encryption")).isNotEmpty();
+        assertThat(device.getProperties().get("FirmwareVersion")).isNotEmpty();
+        assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();
     }
 
     @Test
@@ -85,7 +82,7 @@ public class ShureSystemOnTest {
     @Test
     public void encryptionOnTest() throws Exception {
         String deviceId = shureSystemOn.retrieveMultipleStatistics().get(0).getDeviceId();
-        shureSystemOn.controlProperty(new ControllableProperty("Encryption", 1, deviceId));
+        shureSystemOn.controlProperty(new ControllableProperty("DanteEncryption", 1, deviceId));
 
         service.verify(patchRequestedFor(urlEqualTo("/api/v1.0/devices/" + deviceId + "/encryption/audio/enable")));
     }
@@ -93,7 +90,7 @@ public class ShureSystemOnTest {
     @Test
     public void encryptionOffTest() throws Exception {
         String deviceId = shureSystemOn.retrieveMultipleStatistics().get(0).getDeviceId();
-        shureSystemOn.controlProperty(new ControllableProperty("Encryption", 0, deviceId));
+        shureSystemOn.controlProperty(new ControllableProperty("DanteEncryption", 0, deviceId));
 
         service.verify(patchRequestedFor(urlEqualTo("/api/v1.0/devices/" + deviceId + "/encryption/audio/disable")));
     }

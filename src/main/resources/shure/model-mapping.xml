@@ -16,7 +16,67 @@
         </mapping>
     </model>
 
+    <model vendor="shure" name="ANIUSB">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="LedEthernetEnabled" ref="ethernetLedEnabled"/>
+            <property name="LedBrightnessPercentage" ref="ledBrightnessPercentage"/>
+            <property name="PasswordSet" ref="passwordSet"/>
+            <property name="IsInitialPasswordSet" ref="isInitialPasswordSet"/>
+            <property name="DanteEncryption" ref="danteEncryptionEnabled"/>
+            <property name="DanteEncryptionPassphraseSet" ref="danteEncryptionPassphraseSet"/>
+            <property name="DanteDeviceNameConflict" ref="danteDeviceNameConflict"/>
+            <property name="DanteClockSyncError" ref="danteClockSyncError"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="ActivePresetIndex" ref="activePresetIndex"/>
+            <property name="InputMeteringMode" ref="inputMeteringMode"/>
+            <property name="OutputMeteringMode" ref="outputMeteringMode"/>
+            <property name="Mute" ref="logicMuteEnabled"/>
+            <property name="Reboot" ref="Reboot"/>
+            <property name="Reset" ref="Reset"/>
+        </properties>
+        <control>
+            <property name="Mute" value="Toggle"/>
+            <property name="DanteEncryption" value="Toggle"/>
+            <property name="Reboot" value="Push"/>
+            <property name="Reset" value="Push"/>
+        </control>
+    </model>
+
     <model vendor="shure" name="MXW6">
+        <properties>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="MicStatus" ref="micStatus"/>
+            <property name="MicGain" ref="micGain"/>
+            <property name="OnAir" ref="onAir"/>
+            <property name="OnCharger" ref="onCharger"/>
+            <property name="HasShureBattery" ref="hasShureBattery"/>
+            <property name="BatteryCycleCount" ref="batteryCycleCount"/>
+            <property name="BatteryStatus" ref="batteryStatus"/>
+        </properties>
+        <statistic>
+            <property name="BatteryPercentage" ref="batteryPercentage"/>
+            <property name="BatteryHealth" ref="batteryHealth"/>
+            <property name="BatteryMinutesRemaining" ref="batteryMinutesRemaining"/>
+        </statistic>
+    </model>
+
+    <model vendor="shure" name="MXW8">
         <properties>
             <property name="IsIdentifying" ref="isIdentifying"/>
             <property name="IsRemoteDevice" ref="isRemoteDevice"/>
@@ -58,7 +118,83 @@
         </properties>
     </model>
 
+    <model vendor="shure" name="MXWAPT4">
+        <properties>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="GlobalMicStatus" ref="globalMicStatus"/>
+            <property name="Uptime" ref="uptime"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="MXWAPT8">
+        <properties>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="GlobalMicStatus" ref="globalMicStatus"/>
+            <property name="Uptime" ref="uptime"/>
+        </properties>
+    </model>
+
     <model vendor="shure" name="MXWNCS2">
+        <properties>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="MXWNCS4">
+        <properties>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="MXWNCS8">
         <properties>
             <property name="IsIdentifying" ref="isIdentifying"/>
             <property name="IpMode" ref="ipMode"/>
@@ -152,6 +288,96 @@
             <property name="AccessControlEnabled" ref="accessControlEnabled"/>
             <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
             <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="Reboot" ref="Reboot"/>
+            <property name="Reset" ref="Reset"/>
+        </properties>
+        <control>
+            <property name="Mute" value="Toggle"/>
+            <property name="DanteEncryption" value="Toggle"/>
+            <property name="Reboot" value="Push"/>
+            <property name="Reset" value="Push"/>
+        </control>
+    </model>
+
+    <model vendor="shure" name="MXA710-2FT">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="LedEthernetEnabled" ref="ethernetLedEnabled"/>
+            <property name="LedBrightnessPercentage" ref="ledBrightnessPercentage"/>
+            <property name="PasswordSet" ref="passwordSet"/>
+            <property name="IsInitialPasswordSet" ref="isInitialPasswordSet"/>
+            <property name="DanteEncryption" ref="danteEncryptionEnabled"/>
+            <property name="DanteEncryptionPassphraseSet" ref="danteEncryptionPassphraseSet"/>
+            <property name="DanteDeviceNameConflict" ref="danteDeviceNameConflict"/>
+            <property name="DanteClockSyncError" ref="danteClockSyncError"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+            <property name="Mute" ref="deviceMute"/>
+            <property name="UnitsOfMeasurement" ref="unitsOfMeasurement"/>
+            <property name="ActivePresetIndex" ref="activePresetIndex"/>
+            <property name="BypassAllEq" ref="bypassAllEq"/>
+            <property name="LobeConfiguration" ref="lobeConfiguration"/>
+            <property name="EqContour" ref="eqContour"/>
+            <property name="BypassIntellimix" ref="bypassIntellimix"/>
+            <property name="Reboot" ref="Reboot"/>
+            <property name="Reset" ref="Reset"/>
+        </properties>
+        <control>
+            <property name="Mute" value="Toggle"/>
+            <property name="DanteEncryption" value="Toggle"/>
+            <property name="Reboot" value="Push"/>
+            <property name="Reset" value="Push"/>
+        </control>
+    </model>
+
+    <model vendor="shure" name="MXA710-4FT">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="LedEthernetEnabled" ref="ethernetLedEnabled"/>
+            <property name="LedBrightnessPercentage" ref="ledBrightnessPercentage"/>
+            <property name="PasswordSet" ref="passwordSet"/>
+            <property name="IsInitialPasswordSet" ref="isInitialPasswordSet"/>
+            <property name="DanteEncryption" ref="danteEncryptionEnabled"/>
+            <property name="DanteEncryptionPassphraseSet" ref="danteEncryptionPassphraseSet"/>
+            <property name="DanteDeviceNameConflict" ref="danteDeviceNameConflict"/>
+            <property name="DanteClockSyncError" ref="danteClockSyncError"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+            <property name="Mute" ref="deviceMute"/>
+            <property name="UnitsOfMeasurement" ref="unitsOfMeasurement"/>
+            <property name="ActivePresetIndex" ref="activePresetIndex"/>
+            <property name="BypassAllEq" ref="bypassAllEq"/>
+            <property name="LobeConfiguration" ref="lobeConfiguration"/>
+            <property name="EqContour" ref="eqContour"/>
+            <property name="BypassIntellimix" ref="bypassIntellimix"/>
             <property name="Reboot" ref="Reboot"/>
             <property name="Reset" ref="Reset"/>
         </properties>

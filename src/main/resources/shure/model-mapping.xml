@@ -780,4 +780,172 @@
             <property name="IsIdentifying" ref="isIdentifying"/>
         </properties>
     </model>
+
+    <model vendor="shure" name="ULXD1">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="OnAir" ref="onAir"/>
+            <property name="OnCharger" ref="onCharger"/>
+            <property name="HasShureBattery" ref="hasShureBattery"/>
+            <property name="MicStatus" ref="micStatus"/>
+            <property name="BatteryPercentage" ref="batteryPercentage"/>
+            <property name="BatteryCycleCount" ref="batteryCycleCount"/>
+            <property name="BatteryHealth" ref="batteryHealth"/>
+            <property name="BatteryMinutesRemaining" ref="batteryMinutesRemaining"/>
+            <property name="MicGain" ref="micGain"/>
+            <property name="BatteryStatus" ref="batteryStatus"/>
+            <property name="LockStatus" ref="lockStatus"/>
+            <property name="RfPower" ref="rfPower"/>
+            <property name="BatteryType" ref="batteryType"/>
+            <property name="Muted" ref="muted"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD2">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="OnAir" ref="onAir"/>
+            <property name="OnCharger" ref="onCharger"/>
+            <property name="HasShureBattery" ref="hasShureBattery"/>
+            <property name="MicStatus" ref="micStatus"/>
+            <property name="BatteryPercentage" ref="batteryPercentage"/>
+            <property name="BatteryCycleCount" ref="batteryCycleCount"/>
+            <property name="BatteryHealth" ref="batteryHealth"/>
+            <property name="BatteryMinutesRemaining" ref="batteryMinutesRemaining"/>
+            <property name="MicGain" ref="micGain"/>
+            <property name="BatteryStatus" ref="batteryStatus"/>
+            <property name="LockStatus" ref="lockStatus"/>
+            <property name="RfPower" ref="rfPower"/>
+            <property name="BatteryType" ref="batteryType"/>
+            <property name="Muted" ref="muted"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD4">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="FrontPanelLock" ref="frontPanelLock"/>
+            <property name="PowerSwitchLock" ref="powerSwitchLock"/>
+            <property name="EncryptionMode" ref="encryptionMode"/>
+            <property name="GlobalMuteStatus" ref="globalMute"/>
+            <property name="HighDensityMode" ref="highDensityMode"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD4D">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="FrontPanelLock" ref="frontPanelLock"/>
+            <property name="PowerSwitchLock" ref="powerSwitchLock"/>
+            <property name="EncryptionMode" ref="encryptionMode"/>
+            <property name="GlobalMuteStatus" ref="globalMute"/>
+            <property name="HighDensityMode" ref="highDensityMode"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="RedundantDanteGateway" ref="redundantDante.redundantGateway"/>
+            <property name="RedundantDanteIpAddress" ref="redundantDante.redundantIpAddress"/>
+            <property name="RedundantDanteMacAddress" ref="redundantDante.redundantMac"/>
+            <property name="RedundantDanteIpMode" ref="redundantDante.redundantIpMode"/>
+            <property name="RedundantDanteSubnetMask" ref="redundantDante.redundantSubnetMask"/>
+            <property name="RedundantDanteConfig" ref="redundantDante.config"/>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD4Q">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="FrontPanelLock" ref="frontPanelLock"/>
+            <property name="PowerSwitchLock" ref="powerSwitchLock"/>
+            <property name="EncryptionMode" ref="encryptionMode"/>
+            <property name="GlobalMuteStatus" ref="globalMute"/>
+            <property name="HighDensityMode" ref="highDensityMode"/>
+            <property name="DanteGateway" ref="dante.gateway"/>
+            <property name="DanteIpAddress" ref="dante.ipAddress"/>
+            <property name="DanteMacAddress" ref="dante.mac"/>
+            <property name="DanteIpMode" ref="dante.ipMode"/>
+            <property name="DanteSubnetMask" ref="dante.subnetMask"/>
+            <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="RedundantDanteGateway" ref="redundantDante.redundantGateway"/>
+            <property name="RedundantDanteIpAddress" ref="redundantDante.redundantIpAddress"/>
+            <property name="RedundantDanteMacAddress" ref="redundantDante.redundantMac"/>
+            <property name="RedundantDanteIpMode" ref="redundantDante.redundantIpMode"/>
+            <property name="RedundantDanteSubnetMask" ref="redundantDante.redundantSubnetMask"/>
+            <property name="RedundantDanteConfig" ref="redundantDante.config"/>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD6">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="OnAir" ref="onAir"/>
+            <property name="OnCharger" ref="onCharger"/>
+            <property name="HasShureBattery" ref="hasShureBattery"/>
+            <property name="MicStatus" ref="micStatus"/>
+            <property name="BatteryPercentage" ref="batteryPercentage"/>
+            <property name="BatteryCycleCount" ref="batteryCycleCount"/>
+            <property name="BatteryHealth" ref="batteryHealth"/>
+            <property name="BatteryMinutesRemaining" ref="batteryMinutesRemaining"/>
+            <property name="MicGain" ref="micGain"/>
+            <property name="BatteryStatus" ref="batteryStatus"/>
+            <property name="LockStatus" ref="lockStatus"/>
+            <property name="RfPower" ref="rfPower"/>
+            <property name="BatteryType" ref="batteryType"/>
+            <property name="Muted" ref="muted"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="ULXD8">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="OnAir" ref="onAir"/>
+            <property name="OnCharger" ref="onCharger"/>
+            <property name="HasShureBattery" ref="hasShureBattery"/>
+            <property name="MicStatus" ref="micStatus"/>
+            <property name="BatteryPercentage" ref="batteryPercentage"/>
+            <property name="BatteryCycleCount" ref="batteryCycleCount"/>
+            <property name="BatteryHealth" ref="batteryHealth"/>
+            <property name="BatteryMinutesRemaining" ref="batteryMinutesRemaining"/>
+            <property name="MicGain" ref="micGain"/>
+            <property name="BatteryStatus" ref="batteryStatus"/>
+            <property name="LockStatus" ref="lockStatus"/>
+            <property name="RfPower" ref="rfPower"/>
+            <property name="BatteryType" ref="batteryType"/>
+            <property name="Muted" ref="muted"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+        </properties>
+    </model>
 </root>

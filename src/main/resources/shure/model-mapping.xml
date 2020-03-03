@@ -42,10 +42,12 @@
             <property name="DanteIpMode" ref="dante.ipMode"/>
             <property name="DanteSubnetMask" ref="dante.subnetMask"/>
             <property name="DanteDeviceName" ref="dante.deviceName"/>
+            <property name="NetworkAudioChangesAllowed" ref="networkAudioChangesAllowed"/>
             <property name="ActivePresetIndex" ref="activePresetIndex"/>
             <property name="InputMeteringMode" ref="inputMeteringMode"/>
             <property name="OutputMeteringMode" ref="outputMeteringMode"/>
-            <property name="Mute" ref="logicMuteEnabled"/>
+            <property name="MuteLogic" ref="logicMuteEnabled"/>
+            <property name="Mute" ref="deviceMute"/>
             <property name="Reboot" ref="Reboot"/>
             <property name="Reset" ref="Reset"/>
         </properties>
@@ -474,5 +476,84 @@
             <property name="Reboot" value="Push"/>
             <property name="Reset" value="Push"/>
         </control>
+    </model>
+
+    <model vendor="shure" name="SBC220">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsInStorageMode" ref="isInStorageMode"/>
+            <property name="DaisyChainLimitExceeded" ref="daisyChainLimitExceeded"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="SBC240">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+            <property name="IsInStorageMode" ref="isInStorageMode"/>
+            <property name="DaisyChainLimitExceeded" ref="daisyChainLimitExceeded"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="SBC250">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="SBC450">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+        </properties>
+    </model>
+
+    <model vendor="shure" name="SBC850">
+        <properties>
+            <property name="IsRemoteDevice" ref="isRemoteDevice"/>
+            <property name="IsIdentifying" ref="isIdentifying"/>
+            <property name="IpMode" ref="ipMode"/>
+            <property name="IpAddress" ref="currentIpAddress"/>
+            <property name="IpNumber" ref="currentIpNumber"/>
+            <property name="SubnetMask" ref="currentSubnetMask"/>
+            <property name="Gateway" ref="currentGateway"/>
+            <property name="Uptime" ref="uptime"/>
+            <property name="AccessControlEnabled" ref="accessControlEnabled"/>
+            <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
+        </properties>
     </model>
 </root>

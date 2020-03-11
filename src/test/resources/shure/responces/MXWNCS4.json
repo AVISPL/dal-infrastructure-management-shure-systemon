@@ -1,0 +1,108 @@
+[
+  {
+    "bays": [
+      {
+        "txHardwareId": "1c0039bf-0000-11dd-a000-000eddcccccc",
+        "index": 0,
+        "parentDeviceHardwareId": "dd408167-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": "1c00001c-0000-11dd-a000-000eddcccccc",
+        "index": 1,
+        "parentDeviceHardwareId": "dd408167-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": "1c0000c3-0000-11dd-a000-000eddcccccc",
+        "index": 2,
+        "parentDeviceHardwareId": "dd408167-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": null,
+        "index": 3,
+        "parentDeviceHardwareId": "dd408167-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      }
+    ],
+    "isIdentifying": false,
+    "ipMode": "DHCP",
+    "currentIpAddress": "192.168.2.192",
+    "currentIpNumber": 3232236224,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "staticIpAddress": "192.168.1.1",
+    "staticSubnetMask": "255.255.0.0",
+    "staticGateway": "0.0.0.0",
+    "macAddress": "00:0E:DD:40:81:67",
+    "firmwareVersion": "6.0.3",
+    "serialNumber": "3OA0591028",
+    "uptime": "1:07:42",
+    "accessControlEnabled": false,
+    "deviceFactoryResetAllowed": true,
+    "hardwareId": "dd408167-0000-11dd-a000-000eddcccccc",
+    "model": "MXWNCS4",
+    "name": "MXWNCS-Dev",
+    "isRemoteDevice": false,
+    "version": 2,
+    "discriminator": "MxwCharger4Device"
+  },
+  {
+    "bays": [
+      {
+        "txHardwareId": "1c004b6a-0000-11dd-a000-000eddcccccc",
+        "index": 0,
+        "parentDeviceHardwareId": "dd403ef9-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": null,
+        "index": 1,
+        "parentDeviceHardwareId": "dd403ef9-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": "1c004be5-0000-11dd-a000-000eddcccccc",
+        "index": 2,
+        "parentDeviceHardwareId": "dd403ef9-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      },
+      {
+        "txHardwareId": null,
+        "index": 3,
+        "parentDeviceHardwareId": "dd403ef9-0000-11dd-a000-000eddcccccc",
+        "type": "MxwChargerBay",
+        "discriminator": "MxwChargerBay"
+      }
+    ],
+    "isIdentifying": false,
+    "ipMode": "DHCP",
+    "currentIpAddress": "192.168.2.77",
+    "currentIpNumber": 3232236109,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "staticIpAddress": "192.168.1.1",
+    "staticSubnetMask": "255.255.0.0",
+    "staticGateway": "0.0.0.0",
+    "macAddress": "00:0E:DD:40:3E:F9",
+    "firmwareVersion": "6.0.3",
+    "serialNumber": "3LL0607028",
+    "uptime": "1:07:40",
+    "accessControlEnabled": false,
+    "deviceFactoryResetAllowed": true,
+    "hardwareId": "dd403ef9-0000-11dd-a000-000eddcccccc",
+    "model": "MXWNCS4",
+    "name": "MXWNCS4-Z",
+    "isRemoteDevice": false,
+    "version": 2,
+    "discriminator": "MxwCharger4Device"
+  }
+]

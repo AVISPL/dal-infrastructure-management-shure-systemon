@@ -1,0 +1,588 @@
+[
+  {
+    "lobeChannels": [
+      {
+        "audioEnabled": true,
+        "micAngle": 90,
+        "micPattern": "Cardioid",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "audioRoutingChannelName": "Channel 1",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "audioGatedOn": true,
+        "priorityEnabled": false,
+        "automixAudioGain": 0,
+        "automixAudioMute": false,
+        "isIdentifying": false,
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "LowCut",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "sendToMix": "MixBusA",
+        "isAudioClipping": false,
+        "audioMute": false,
+        "audioGain": 29.8,
+        "label": "Output 1",
+        "name": "channel343",
+        "index": 0,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "Mxa310Channel",
+        "discriminator": "Mxa310Channel"
+      },
+      {
+        "audioEnabled": true,
+        "micAngle": 180,
+        "micPattern": "Cardioid",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "audioRoutingChannelName": "Channel 2",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "audioGatedOn": false,
+        "priorityEnabled": false,
+        "automixAudioGain": 0,
+        "automixAudioMute": false,
+        "isIdentifying": false,
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "sendToMix": "MixBusA",
+        "isAudioClipping": false,
+        "audioMute": true,
+        "audioGain": -76,
+        "label": "Output 2",
+        "name": "Channel 2",
+        "index": 1,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "Mxa310Channel",
+        "discriminator": "Mxa310Channel"
+      },
+      {
+        "audioEnabled": false,
+        "micAngle": 90,
+        "micPattern": "Cardioid",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "audioRoutingChannelName": "Channel 3",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "audioGatedOn": false,
+        "priorityEnabled": false,
+        "automixAudioGain": 0,
+        "automixAudioMute": false,
+        "isIdentifying": false,
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "sendToMix": "MixBusA",
+        "isAudioClipping": false,
+        "audioMute": false,
+        "audioGain": 8,
+        "label": "Output 3",
+        "name": "Channel 3",
+        "index": 2,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "Mxa310Channel",
+        "discriminator": "Mxa310Channel"
+      },
+      {
+        "audioEnabled": false,
+        "micAngle": 270,
+        "micPattern": "Cardioid",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "audioRoutingChannelName": "Channel 4",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "audioGatedOn": false,
+        "priorityEnabled": false,
+        "automixAudioGain": 0,
+        "automixAudioMute": false,
+        "isIdentifying": false,
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "LowCut",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "sendToMix": "MixBusA",
+        "isAudioClipping": false,
+        "audioMute": false,
+        "audioGain": -11,
+        "label": "Output 4",
+        "name": "Channel 4",
+        "index": 3,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "Mxa310Channel",
+        "discriminator": "Mxa310Channel"
+      }
+    ],
+    "automixChannels": [
+      {
+        "audioRoutingEncryptionStatus": "Inactive",
+        "audioRoutingChannelName": "Automix Out",
+        "automixer": {
+          "automixEnabled": true,
+          "automixMode": "Classic",
+          "maxOpenChannels": 4,
+          "keepLastChannelActive": true,
+          "offAttenuationDb": -12,
+          "holdTimeMs": 400,
+          "gatingSensitivity": 5,
+          "automixGainMeterEnabled": false,
+          "discriminator": "Mxa310Automixer"
+        },
+        "soloChannel": 255,
+        "equalizerFilters": [
+          {
+            "enabled": true,
+            "filterType": "LowCut",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": true,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": true,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": true,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "isAudioClipping": false,
+        "audioMute": true,
+        "audioGain": 0,
+        "label": "Mix 1",
+        "name": "Automix Out",
+        "index": 0,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "Mxa310MixChannel",
+        "discriminator": "Mxa310MixChannel"
+      }
+    ],
+    "userPresets": [
+      {
+        "enabled": true,
+        "name": "Preset 1 suman",
+        "created": "2020-02-20T07:19:37Z",
+        "index": 0,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 2 (EMPTY)",
+        "created": null,
+        "index": 1,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 3 (EMPTY)",
+        "created": null,
+        "index": 2,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 4 (EMPTY)",
+        "created": null,
+        "index": 3,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 5 (EMPTY)",
+        "created": null,
+        "index": 4,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 6 (EMPTY)",
+        "created": null,
+        "index": 5,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 7 (EMPTY)",
+        "created": null,
+        "index": 6,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 8 (EMPTY)",
+        "created": null,
+        "index": 7,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 9 (EMPTY)",
+        "created": null,
+        "index": 8,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 10 (EMPTY)",
+        "created": null,
+        "index": 9,
+        "parentDeviceHardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      }
+    ],
+    "activePresetIndex": 255,
+    "ledMuteSettings": {
+      "ledBehavior": "SolidOn",
+      "ledColor": "Red"
+    },
+    "ledUnmuteSettings": {
+      "ledBehavior": "SolidOn",
+      "ledColor": "Green"
+    },
+    "ledDisplayAutomixGating": false,
+    "ledFollowMuteColor": false,
+    "ledStyleSetting": "Ring",
+    "highPassFilterEnable": true,
+    "bypassAllEq": false,
+    "muteControlFunction": "Local",
+    "muteButtonMode": "Toggle",
+    "buttonDefaultsToMuted": false,
+    "logicOut": true,
+    "ethernetLedEnabled": true,
+    "ledBrightnessPercentage": 100,
+    "passwordSet": false,
+    "isInitialPasswordSet": true,
+    "danteEncryptionEnabled": false,
+    "danteEncryptionPassphraseSet": false,
+    "danteDeviceNameConflict": false,
+    "danteClockSyncError": false,
+    "dante": {
+      "gateway": "192.168.2.1",
+      "ipAddress": "192.168.2.108",
+      "mac": "00:1D:C1:91:C8:95",
+      "ipMode": "DHCP",
+      "subnetMask": "255.255.255.0",
+      "deviceName": "MXA310-91c895"
+    },
+    "networkAudioChangesAllowed": true,
+    "deviceMute": false,
+    "isIdentifying": false,
+    "ipMode": "DHCP",
+    "currentIpAddress": "192.168.2.109",
+    "currentIpNumber": 3232236141,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "staticIpAddress": "192.168.1.50",
+    "staticSubnetMask": "255.255.255.0",
+    "staticGateway": "0.0.0.0",
+    "macAddress": "00:0E:DD:51:A1:CC",
+    "firmwareVersion": "4.1.37",
+    "serialNumber": "2SE24337199",
+    "uptime": "94:41:31",
+    "accessControlEnabled": false,
+    "deviceFactoryResetAllowed": true,
+    "hardwareId": "dd51a1cc-0000-11dd-a000-000eddcccccc",
+    "model": "MXA310",
+    "name": "mxa37487348348",
+    "isRemoteDevice": false,
+    "version": 16,
+    "discriminator": "Mxa310DeviceV5"
+  }
+]

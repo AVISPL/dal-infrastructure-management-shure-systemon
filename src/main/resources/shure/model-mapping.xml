@@ -241,13 +241,11 @@
             <property name="AccessControlEnabled" ref="accessControlEnabled"/>
             <property name="DeviceFactoryResetAllowed" ref="deviceFactoryResetAllowed"/>
             <property name="IsRemoteDevice" ref="isRemoteDevice"/>
-            <property name="Reboot" ref="Reboot"/>
             <property name="Reset" ref="Reset"/>
         </properties>
         <control>
             <property name="Mute" value="Toggle"/>
             <property name="DanteEncryption" value="Toggle"/>
-            <property name="Reboot" value="Push"/>
             <property name="Reset" value="Push"/>
         </control>
     </model>

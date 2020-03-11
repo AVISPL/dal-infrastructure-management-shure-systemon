@@ -1,0 +1,83 @@
+[
+  {
+    "bays": [
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 0,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 1,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "ff444ba4-0000-11dd-a000-000eddcccccc",
+        "index": 2,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 3,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "ff43ef96-0000-11dd-a000-000eddcccccc",
+        "index": 4,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 5,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 6,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      },
+      {
+        "txHardwareId": "00000000-0000-0000-0000-000000000000",
+        "index": 7,
+        "parentDeviceHardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+        "type": "UlxdChargerBay",
+        "discriminator": "UlxdChargerBay"
+      }
+    ],
+    "isIdentifying": false,
+    "ipMode": "DHCP",
+    "currentIpAddress": "192.168.2.103",
+    "currentIpNumber": 3232236135,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "staticIpAddress": "192.168.1.50",
+    "staticSubnetMask": "255.255.255.0",
+    "staticGateway": "0.0.0.0",
+    "macAddress": "00:0E:DD:44:CD:02",
+    "firmwareVersion": "2.3.4",
+    "serialNumber": "4172000042_95A28666_06",
+    "uptime": "1:17:36",
+    "accessControlEnabled": false,
+    "deviceFactoryResetAllowed": true,
+    "hardwareId": "dd44cd02-0000-11dd-a000-000eddcccccc",
+    "model": "SBC850",
+    "name": "SBC850",
+    "isRemoteDevice": false,
+    "version": 2,
+    "discriminator": "UlxdOctoChargerDevice"
+  }
+]

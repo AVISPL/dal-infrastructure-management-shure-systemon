@@ -1,0 +1,806 @@
+[
+  {
+    "currentIpAddress": "192.168.2.131",
+    "currentIpNumber": 3232236163,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "macAddress": "00:0E:DD:50:2C:49",
+    "firmwareVersion": "3.1.6",
+    "serialNumber": "2PH1507502",
+    "hardwareId": "dd502c49-0000-11dd-a000-000eddcccccc",
+    "model": "ANIUSB",
+    "name": "FarranANIUSB",
+    "isRemoteDevice": false,
+    "version": 2,
+    "discriminator": "UnsupportedDevice"
+  },
+  {
+    "danteInputChannels": [
+      {
+        "audioRoutingSubscriptionStatus": "None",
+        "audioRoutingChannelSubscriptionName": "",
+        "audioRoutingChannelName": "Dante Input 1",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "logic": {
+          "enabled": false,
+          "inputDeviceType": "Unknown",
+          "inputSignal": false,
+          "outputSignal": false
+        },
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "type": "AniUsbDanteInputChannel",
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": -59,
+        "label": "Input 1",
+        "name": "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "discriminator": "AniUsbDanteInputChannel"
+      },
+      {
+        "audioRoutingSubscriptionStatus": "None",
+        "audioRoutingChannelSubscriptionName": "",
+        "audioRoutingChannelName": "Dante Input 2",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "logic": {
+          "enabled": false,
+          "inputDeviceType": "Unknown",
+          "inputSignal": false,
+          "outputSignal": false
+        },
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "type": "AniUsbDanteInputChannel",
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": -73,
+        "label": "Input 2",
+        "name": "ty tuf fhfg jgj jhjg mgjg kjguh",
+        "index": 1,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "discriminator": "AniUsbDanteInputChannel"
+      },
+      {
+        "audioRoutingSubscriptionStatus": "None",
+        "audioRoutingChannelSubscriptionName": "",
+        "audioRoutingChannelName": "Dante Input 3",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "logic": {
+          "enabled": false,
+          "inputDeviceType": "Unknown",
+          "inputSignal": false,
+          "outputSignal": false
+        },
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "type": "AniUsbDanteInputChannel",
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": -64,
+        "label": "Input 3",
+        "name": "dante Input 1 afdgggggggggggggg",
+        "index": 2,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "discriminator": "AniUsbDanteInputChannel"
+      },
+      {
+        "audioRoutingSubscriptionStatus": "None",
+        "audioRoutingChannelSubscriptionName": "",
+        "audioRoutingChannelName": "Dante Input 4",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "logic": {
+          "enabled": false,
+          "inputDeviceType": "Unknown",
+          "inputSignal": false,
+          "outputSignal": false
+        },
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "type": "AniUsbDanteInputChannel",
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": -109.8,
+        "label": "Input 4",
+        "name": "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+        "index": 3,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "discriminator": "AniUsbDanteInputChannel"
+      }
+    ],
+    "danteOutputChannels": [
+      {
+        "audioRoutingChannelName": "Dante Output 1",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "limiter": {
+          "enabled": true,
+          "isEngaged": false,
+          "discriminator": "AudioLimiter"
+        },
+        "audioMute": false,
+        "audioGain": 0,
+        "label": "Output 1",
+        "name": "Dante Output 111111111111111111",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbDanteOutputChannel",
+        "discriminator": "AniUsbDanteOutputChannel"
+      },
+      {
+        "audioRoutingChannelName": "Dante Output 2",
+        "audioRoutingEncryptionStatus": "Inactive",
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "limiter": {
+          "enabled": true,
+          "isEngaged": false,
+          "discriminator": "AudioLimiter"
+        },
+        "audioMute": false,
+        "audioGain": 0,
+        "label": "Output 2",
+        "name": "Dante Output 211111111111111111",
+        "index": 1,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbDanteOutputChannel",
+        "discriminator": "AniUsbDanteOutputChannel"
+      }
+    ],
+    "auxInputChannels": [
+      {
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "analogLevel": "Line",
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": 0,
+        "label": "AuxIn 1",
+        "name": "Analog Inputhjhjhjhjhjhjhjhjhjh",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbAuxInputChannel",
+        "discriminator": "AniUsbAuxInputChannel"
+      }
+    ],
+    "auxOutputChannels": [
+      {
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "analogLevel": "Line",
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "LowCut",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "limiter": {
+          "enabled": true,
+          "isEngaged": false,
+          "discriminator": "AudioLimiter"
+        },
+        "audioMute": false,
+        "audioGain": 0,
+        "label": "AuxOut 1",
+        "name": "Analog Outputtytdfhyfv",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbAuxOutputChannel",
+        "discriminator": "AniUsbAuxOutputChannel"
+      }
+    ],
+    "usbInputChannels": [
+      {
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "matrixOutputs": [
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 1,
+              "channelType": "AniUsbDanteOutputChannel"
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": true,
+            "crossPointGain": 0,
+            "valid": true,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbAuxOutputChannel"
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          },
+          {
+            "routeEnabled": false,
+            "crossPointGain": 0,
+            "valid": false,
+            "matrixOutputChannel": {
+              "channelIndex": 0,
+              "channelType": "AniUsbUsbOutputChannel"
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "MatrixMixerOutputInfo",
+            "discriminator": "MatrixMixerOutputInfo"
+          }
+        ],
+        "soloEnabled": false,
+        "audioMute": false,
+        "audioGain": -60,
+        "label": "UsbIn 1",
+        "name": "hjggggggggggggggggggggggggggggg",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbUsbInputChannel",
+        "discriminator": "AniUsbUsbInputChannel"
+      }
+    ],
+    "usbOutputChannels": [
+      {
+        "faderGroupEnabled": false,
+        "muteGroupEnabled": false,
+        "equalizerFilters": [
+          {
+            "enabled": false,
+            "filterType": "LowCut",
+            "frequency": 100,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 0,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 800,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 1,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "Parametric",
+            "frequency": 2000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 2,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          },
+          {
+            "enabled": false,
+            "filterType": "HighCut",
+            "frequency": 12000,
+            "gain": 0,
+            "qFactor": 1.41,
+            "bandwidth": {
+              "numerator": 1,
+              "denominator": 1
+            },
+            "index": 3,
+            "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+            "type": "EqualizerFilter",
+            "discriminator": "EqualizerFilter"
+          }
+        ],
+        "limiter": {
+          "enabled": true,
+          "isEngaged": false,
+          "discriminator": "AudioLimiter"
+        },
+        "audioMute": false,
+        "audioGain": 0,
+        "label": "UsbOut 1",
+        "name": "USB Output",
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "AniUsbUsbOutputChannel",
+        "discriminator": "AniUsbUsbOutputChannel"
+      }
+    ],
+    "userPresets": [
+      {
+        "enabled": false,
+        "name": "Preset 1 (EMPTY)",
+        "created": null,
+        "index": 0,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 2 (EMPTY)",
+        "created": null,
+        "index": 1,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 3 (EMPTY)",
+        "created": null,
+        "index": 2,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 4 (EMPTY)",
+        "created": null,
+        "index": 3,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 5 (EMPTY)",
+        "created": null,
+        "index": 4,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 6 (EMPTY)",
+        "created": null,
+        "index": 5,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 7 (EMPTY)",
+        "created": null,
+        "index": 6,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 8 (EMPTY)",
+        "created": null,
+        "index": 7,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 9 (EMPTY)",
+        "created": null,
+        "index": 8,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      },
+      {
+        "enabled": false,
+        "name": "Preset 10 (EMPTY)",
+        "created": null,
+        "index": 9,
+        "parentDeviceHardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+        "type": "UserPreset",
+        "discriminator": "UserPreset"
+      }
+    ],
+    "activePresetIndex": 255,
+    "inputMeteringMode": "PostFader",
+    "outputMeteringMode": "PostFader",
+    "logicMuteEnabled": true,
+    "ethernetLedEnabled": true,
+    "ledBrightnessPercentage": 100,
+    "passwordSet": false,
+    "isInitialPasswordSet": true,
+    "danteEncryptionEnabled": false,
+    "danteEncryptionPassphraseSet": false,
+    "danteDeviceNameConflict": false,
+    "danteClockSyncError": false,
+    "dante": {
+      "gateway": "192.168.2.1",
+      "ipAddress": "192.168.2.86",
+      "mac": "00:1D:C1:90:04:65",
+      "ipMode": "DHCP",
+      "subnetMask": "255.255.255.0",
+      "deviceName": "ANIUSB-900465"
+    },
+    "networkAudioChangesAllowed": true,
+    "deviceMute": false,
+    "isIdentifying": false,
+    "ipMode": "DHCP",
+    "currentIpAddress": "192.168.2.92",
+    "currentIpNumber": 3232236124,
+    "currentSubnetMask": "255.255.255.0",
+    "currentGateway": "192.168.2.1",
+    "staticIpAddress": "192.168.1.50",
+    "staticSubnetMask": "255.255.255.0",
+    "staticGateway": "0.0.0.0",
+    "macAddress": "00:0E:DD:50:6B:EB",
+    "firmwareVersion": "4.1.39",
+    "serialNumber": "2PL1301759",
+    "uptime": "144:02:44",
+    "accessControlEnabled": false,
+    "deviceFactoryResetAllowed": true,
+    "hardwareId": "dd506beb-0000-11dd-a000-000eddcccccc",
+    "model": "ANIUSB",
+    "name": "ANIUSB-506b",
+    "isRemoteDevice": false,
+    "version": 16,
+    "discriminator": "AniUsbDeviceV3"
+  }
+]

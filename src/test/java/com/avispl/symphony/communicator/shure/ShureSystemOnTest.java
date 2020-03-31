@@ -55,7 +55,7 @@ public class ShureSystemOnTest {
 
         AggregatedDevice device = devices.get(0);
 
-        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics");
+        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics", "controllableProperties");
         assertThat(device.getProperties()).isNotEmpty();
         assertThat(device.getProperties().get("FirmwareVersion")).isNotEmpty();
         assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();

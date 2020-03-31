@@ -53,7 +53,7 @@ public abstract class ShureSystemOnBaseModelTest {
         List<AggregatedDevice> devices = shureSystemOn.retrieveMultipleStatistics();
         assertThat(devices).isNotEmpty().hasSize(devicesSize);
         AggregatedDevice device = devices.get(0);
-        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics");
+        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics", "controllableProperties");
         assertThat(device.getProperties()).isNotEmpty();
         assertThat(device.getProperties().get("FirmwareVersion")).isNotEmpty();
         assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();

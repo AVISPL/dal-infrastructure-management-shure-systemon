@@ -16,7 +16,7 @@
         </mapping>
     </model>
 
-    <model vendor="shure" name="ANIUSB">
+    <model vendor="shure" name="Tesira">
         <properties>
             <property name="IsRemoteDevice" ref="isRemoteDevice"/>
             <property name="IsIdentifying" ref="isIdentifying"/>

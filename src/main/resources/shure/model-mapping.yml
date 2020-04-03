@@ -1,0 +1,85 @@
+models:
+  - model:
+      name: generic
+      vendor: shure
+      properties:
+        FirmwareVersion: FirmwareVersion
+        DeviceVersion: version
+      mapping:
+        deviceType: Microphone
+        deviceId: device.hardwareId
+        deviceName: device.name
+        deviceMake: Shure
+        deviceModel: device.model
+        deviceOnline: true
+        serialNumber: device.serialNumber
+        macAddresses: device.macAddress
+  - model:
+      name: Tesira
+      vendor: shure
+      filter: device.Model=='MXA310'
+      properties:
+        IsRemoteDevice: device.isRemoteDevice
+        IsIdentifying: device.IsIdentifying
+        IpMode: device.IpMode
+        IpAddress: device.currentIpAddress
+        IpNumber: device.currentIpNumber
+        SubnetMask: device.currentSubnetMask
+        Gateway: device.currentGateway
+        Uptime: device.uptime
+        AccessControlEnabled: device.AccessControlEnabled
+        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
+        LedEthernetEnabled: device.ethernetLedEnabled
+        LedBrightnessPercentage: device.ledBrightnessPercentage
+        PasswordSet: device.passwordSet
+        IsInitialPasswordSet: device.isInitialPasswordSet
+        DanteEncryption: device.danteEncryptionEnabled
+        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
+        DanteDeviceNameConflict: device.danteDeviceNameConflict
+        DanteClockSyncError: device.danteClockSyncError
+        DanteGateway: device.dante.gateway
+        DanteIpAddress: device.dante.ipAddress
+        DanteMacAddress: device.dante.mac
+        DanteIpMode: device.dante.ipMode
+        DanteSubnetMask: device.dante.subnetMask
+        DanteDeviceName: device.dante.deviceName
+        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
+        ActivePresetIndex: device.activePresetIndex
+        InputMeteringMode: device.inputMeteringMode
+        OutputMeteringMode: device.outputMeteringMode
+        MuteLogic: device.logicMuteEnabled
+        Mute: device.deviceMute
+        Reboot: device.Reboot
+        Reset: device.Reset
+      control:
+        Mute: Toggle
+        DanteEncryption: Toggle
+        Reboot:
+          type: Button
+          label: Reboot
+          labelPressed: Reboot
+          gracePeriod: 0
+        Reset:
+          type: Button
+          label: Reset
+          labelPressed: Reset
+          gracePeriod: 0
+
+  - model:
+      name: MXW6
+      vendor: shure
+      filter: device.Model=='MXA910'
+      properties:
+        IsIdentifying: device.isIdentifying
+        IsRemoteDevice: device.isRemoteDevice
+        MicStatus: device.micStatus
+        MicGain: device.micGain
+        OnAir: device.onAir
+        OnCharger: device.onCharger
+        HasShureBattery: device.hasShureBattery
+        BatteryCycleCount: device.batteryCycleCount
+        BatteryStatus: device.batteryStatus
+      statistic:
+        BatteryPercentage: device.batteryPercentage
+        BatteryHealth: device.batteryHealth
+        BatteryMinutesRemaining: device.batteryMinutesRemaining

@@ -8,6 +8,7 @@ public class ShureSystemOnScm820DanTest extends ShureSystemOnBaseModelTest {
         devicesSize = 1;
         modelName = "SCM820-DAN";
         controlsSize = 0;
+        controllablePropertiesSize = 0;
         propertiesSize = 27;
     }
 }

@@ -3,11 +3,9 @@
  */
 package com.avispl.symphony.dal.communicator.shure;
 
-import static java.util.Collections.emptyMap;
 import static java.util.concurrent.CompletableFuture.runAsync;
 import static java.util.stream.Collectors.toList;
 
-import com.avispl.symphony.api.common.error.TargetNotFoundException;
 import com.avispl.symphony.api.dal.control.Controller;
 import com.avispl.symphony.api.dal.dto.control.ControllableProperty;
 import com.avispl.symphony.api.dal.dto.monitor.aggregator.AggregatedDevice;
@@ -17,16 +15,9 @@ import com.avispl.symphony.dal.aggregator.parser.PropertiesMapping;
 import com.avispl.symphony.dal.aggregator.parser.PropertiesMappingParser;
 import com.avispl.symphony.dal.communicator.RestCommunicator;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.common.collect.ImmutableList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.springframework.http.HttpHeaders;
@@ -41,15 +32,10 @@ import org.springframework.util.CollectionUtils;
  */
 public class ShureSystemOn extends RestCommunicator implements Aggregator, Controller {
 
-    private String loginId;
-    private Map<String, PropertiesMapping> models = emptyMap();
     private List<String> modelsWithoutInitialize = Arrays.asList("MXWAPT2", "MXW6", "MXWNCS2");
     private AggregatedDeviceProcessor aggregatedDeviceProcessor;
-    private ObjectMapper objectMapper;
 
-    public final static String DEFAULT_MODEL = "generic";
-
-    public static String BASE_URL = "/api/v1.0";
+    private static final String BASE_URL = "/api/v1.0";
 
     /**
      * Constructor
@@ -58,7 +44,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         // override default value to trust all certificates - MCUs typically do not have trusted certificates installed
         // it can be changed back by configuration
         setTrustAllCertificates(true);
-        objectMapper = new ObjectMapper();
     }
 
     /**
@@ -67,19 +52,30 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     @Override
     protected void internalInit() throws Exception {
         super.internalInit();
-        //Load models properties mapping
-//        models = new PropertiesMappingParser().load("shure/model-mapping.xml");
-        Map<String, PropertiesMapping> mapping = new PropertiesMappingParser()
+        Map<String, PropertiesMapping> models = new PropertiesMappingParser()
             .loadYML("shure/model-mapping.yml", getClass());
-        aggregatedDeviceProcessor = new AggregatedDeviceProcessor(mapping);
+        aggregatedDeviceProcessor = new AggregatedDeviceProcessor(models);
     }
-
 
     /**
      * Shure SystemOn doesn't require authentication.
      */
     @Override
-    protected void authenticate() throws Exception {
+    protected void authenticate() {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void controlProperties(List<ControllableProperty> controllableProperties) throws Exception {
+        if (CollectionUtils.isEmpty(controllableProperties)) {
+            throw new IllegalArgumentException("Controllable properties cannot be null or empty");
+        }
+
+        for (ControllableProperty controllableProperty : controllableProperties) {
+            controlProperty(controllableProperty);
+        }
     }
 
     /**
@@ -119,38 +115,20 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * {@inheritDoc}
      */
     @Override
-    public void controlProperties(List<ControllableProperty> controllableProperties) throws Exception {
-        if (CollectionUtils.isEmpty(controllableProperties)) {
-            throw new IllegalArgumentException("Controllable properties cannot be null or empty");
-        }
-
-        for (ControllableProperty controllableProperty : controllableProperties) {
-            controlProperty(controllableProperty);
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
     public List<AggregatedDevice> retrieveMultipleStatistics() throws Exception {
-        List<AggregatedDevice> devices = aggregatedDeviceProcessor.extractDevices(getDevices());
-//        JsonNode properties = doGet("/api/v1.0/devices", JsonNode.class);
-//        List<AggregatedDevice> statistics = StreamSupport.stream(properties.spliterator(), false)
-//                .map(this::parseAggregatedDevice)
-//                .collect(toList());
+        JsonNode properties = doGet(BASE_URL + "/devices", JsonNode.class);
 
-//        if (logger.isDebugEnabled()) {
-//            logger.debug("ShureSystemOn retrieveMultipleStatistics statistics.size=" + statistics.size());
-//            for (AggregatedDevice device : statistics) {
-//                logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
-//                        " DeviceModel=" + device.getDeviceModel());
-//            }
-//        }
+        List<AggregatedDevice> statistics = aggregatedDeviceProcessor.extractDevices(properties);
+        statistics.forEach(device -> device.setTimestamp(System.currentTimeMillis()));
 
-//        initShureDevices(devices);
-
-        return devices;
+        if (logger.isDebugEnabled()) {
+            logger.debug("ShureSystemOn retrieveMultipleStatistics statistics.size=" + statistics.size());
+            statistics.forEach(
+                device -> logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
+                    " DeviceModel=" + device.getDeviceModel()));
+        }
+        initShureDevices(statistics);
+        return statistics;
     }
 
     /**
@@ -201,54 +179,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         }
     }
 
-//    /**
-//     * Parse json node to extract device data values
-//     * and apply them to
-//     *
-//     * @param node json node
-//     * @return device with the values populated
-//     */
-//    private AggregatedDevice parseAggregatedDevice(JsonNode node) {
-//        AggregatedDevice device = new AggregatedDevice();
-//
-//        //get device model
-//        String model = node.at("/model").asText();
-//
-//        //find model properties mapping
-//        PropertiesMapping mapping = models.getOrDefault(model, models.get(DEFAULT_MODEL));
-//
-//        //set calculated properties.
-//        device.setTimestamp(System.currentTimeMillis());
-//
-//        //applyProperties properties
-//        AggregatedDeviceProcessor aggregatedDeviceProcessor = new AggregatedDeviceProcessor(mapping);
-//        aggregatedDeviceProcessor.applyProperties(device, node);
-//
-//        System.out.println("ShureSystemOn parseAggregatedDevice model=" + model +
-//                " mapping=" + mapping.toString());
-//
-//        return device;
-//    }
-
-    public JsonNode getDevices() throws Exception {
-//        authenticate(); //TODO check if we need authentification
-        JsonNode devicesResponse = doGet(BASE_URL + "/devices", JsonNode.class);
-
-        devicesResponse.fieldNames().forEachRemaining(s -> {
-            if (s.endsWith("model")) {
-                devicesResponse.get(s).forEach(jsonNode -> {
-                    AggregatedDevice device = new AggregatedDevice();
-                    PropertiesMapping mapping = models.getOrDefault(s, models.get(DEFAULT_MODEL));
-                    device.setTimestamp(System.currentTimeMillis());
-                    AggregatedDeviceProcessor aggregatedDeviceProcessor = new AggregatedDeviceProcessor(
-                        (Map<String, PropertiesMapping>) mapping);
-                    aggregatedDeviceProcessor.applyProperties(device, devicesResponse, s);
-                });
-            }
-        });
-        return devicesResponse;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -272,23 +202,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         doPut(String.format("/api/v1.0/devices/%s/automixer/bypass", deviceId), null);
     }
 
-    private void setProperty(String deviceId, String property, String value) throws Exception {
-        String body = String.format("{ \"propertyPath\": \"%s\",  \"value\": { \"%s\" }}", property, value);
-        doPut(String.format("/api/v1.0/devices/%s/property", deviceId), body);
-    }
-
-    /**
-     * Get device data by device id
-     *
-     * @param deviceId device is
-     * @return device data
-     */
-    private AggregatedDevice device(String deviceId) throws Exception {
-        return retrieveMultipleStatistics(ImmutableList.of(deviceId)).stream()
-            .findFirst()
-            .orElseThrow(() -> new TargetNotFoundException("Device " + deviceId + " not found"));
-    }
-
     /**
      * Send mute command to device
      *
@@ -299,7 +212,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         String body = String.format("{ \"muteState\": \"%s\" }", value);
         doPatch(String.format("/api/v1.0/devices/%s/audio/mute", deviceId), body);
     }
-
 
     /**
      * Send enable/disable audio encryption to device

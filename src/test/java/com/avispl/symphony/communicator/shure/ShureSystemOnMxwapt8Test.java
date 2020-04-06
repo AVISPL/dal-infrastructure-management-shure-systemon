@@ -8,6 +8,7 @@ public class ShureSystemOnMxwapt8Test extends ShureSystemOnBaseModelTest {
         devicesSize = 2;
         modelName = "MXWAPT8";
         controlsSize = 0;
+        controllablePropertiesSize = 0;
         propertiesSize = 20;
     }
 }

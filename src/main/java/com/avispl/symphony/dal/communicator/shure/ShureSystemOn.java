@@ -66,6 +66,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     * @throws Exception
      */
     @Override
     public void controlProperties(List<ControllableProperty> controllableProperties) throws Exception {
@@ -80,6 +81,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     * @throws Exception
      */
     @Override
     public void controlProperty(ControllableProperty controllableProperty) throws Exception {
@@ -113,6 +115,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     * @throws Exception
      */
     @Override
     public List<AggregatedDevice> retrieveMultipleStatistics() throws Exception {
@@ -181,6 +184,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     * @throws Exception
      */
     @Override
     public List<AggregatedDevice> retrieveMultipleStatistics(List<String> deviceIds) throws Exception {
@@ -197,6 +201,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * Bypass the automixer settings on device
      *
      * @param deviceId device id
+     * @throws Exception
      */
     private void automixerBypass(String deviceId) throws Exception {
         doPut(String.format("/api/v1.0/devices/%s/automixer/bypass", deviceId), null);
@@ -207,6 +212,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      *
      * @param deviceId device id
      * @param value property status
+     * @throws Exception
      */
     private void mute(String deviceId, boolean value) throws Exception {
         String body = String.format("{ \"muteState\": \"%s\" }", value);
@@ -218,6 +224,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      *
      * @param deviceId device id
      * @param value property status
+     * @throws Exception
      */
     private void encryption(String deviceId, boolean value) throws Exception {
         String state;
@@ -233,6 +240,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * Send reboot command to device
      *
      * @param deviceId device id
+     * @throws Exception
      */
     private void reboot(String deviceId) throws Exception {
         doPost(String.format("/api/v1.0/devices/%s/maintenance/reboot", deviceId), null);
@@ -242,6 +250,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * Send reset all user presets command to device
      *
      * @param deviceId device id
+     * @throws Exception
      */
     private void defaultsReset(String deviceId) throws Exception {
         doPost(String.format("/api/v1.0/devices/%s/maintenance/defaultsreset", deviceId), null);

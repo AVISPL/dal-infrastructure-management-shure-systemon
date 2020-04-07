@@ -15,9 +15,9 @@ models:
         serialNumber: device.serialNumber
         macAddresses: device.macAddress
   - model:
-      name: Tesira
+      name: ANIUSB
       vendor: shure
-      filter: device.model=='Tesira'
+      filter: device.model=='ANIUSB'
       properties:
         IsRemoteDevice: device.isRemoteDevice
         IsIdentifying: device.IsIdentifying
@@ -57,12 +57,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebooting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXW6
@@ -253,7 +253,7 @@ models:
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXA310
@@ -304,12 +304,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebooting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXA710-2FT
@@ -356,12 +356,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebooting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXA710-4FT
@@ -408,12 +408,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebootting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXA910
@@ -460,12 +460,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebooting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: MXA-MUTE
@@ -505,7 +505,7 @@ models:
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: P300
@@ -549,12 +549,12 @@ models:
         Reboot:
           type: Button
           label: Reboot
-          labelPressed: Reboot
+          labelPressed: Rebooting
           gracePeriod: 0
         Reset:
           type: Button
           label: Reset
-          labelPressed: Reset
+          labelPressed: Resetting
           gracePeriod: 0
   - model:
       name: SBC220

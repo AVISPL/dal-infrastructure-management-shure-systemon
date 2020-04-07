@@ -26,6 +26,7 @@ public abstract class ShureSystemOnBaseModelTest {
     String jsonName;
     int devicesSize;
     int controlsSize;
+    int controllablePropertiesSize;
     int propertiesSize;
 
     private static String resource(String s) throws IOException {
@@ -59,6 +60,7 @@ public abstract class ShureSystemOnBaseModelTest {
         assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();
         assertThat(device.getDeviceModel()).isEqualTo(modelName);
         assertThat(device.getControl().size()).isEqualTo(controlsSize);
+        assertThat(device.getControllableProperties().size()).isEqualTo(controllablePropertiesSize);
         assertThat(device.getProperties().size()).isEqualTo(propertiesSize);
     }
 }

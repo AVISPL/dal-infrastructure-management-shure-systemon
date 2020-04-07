@@ -8,6 +8,7 @@ public class ShureSystemOnSbc850Test extends ShureSystemOnBaseModelTest {
         devicesSize = 1;
         modelName = "SBC850";
         controlsSize = 0;
+        controllablePropertiesSize = 0;
         propertiesSize = 12;
     }
 }

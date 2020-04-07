@@ -7,7 +7,8 @@ public class ShureSystemOnP300Test extends ShureSystemOnBaseModelTest {
         jsonName = "shure/responces/P300.json";
         devicesSize = 2;
         modelName = "P300";
-        controlsSize = 4;
+        controlsSize = 2;
+        controllablePropertiesSize = 2;
         propertiesSize = 33;
     }
 }

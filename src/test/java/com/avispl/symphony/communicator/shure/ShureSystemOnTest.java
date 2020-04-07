@@ -34,7 +34,7 @@ public class ShureSystemOnTest {
     @Before
     public void setUp() throws Exception {
         service.stubFor(get(urlEqualTo("/api/v1.0/devices")))
-                .setResponse(okJson(resource("shure/devices-response.json")).build());
+            .setResponse(okJson(resource("shure/devices-response.json")).build());
 
         service.stubFor(put(urlMatching(".*/api/v1.0/devices/.*"))).setResponse(ok().build());
         service.stubFor(post(urlMatching(".*/api/v1.0/devices/.*"))).setResponse(ok().build());
@@ -55,7 +55,8 @@ public class ShureSystemOnTest {
 
         AggregatedDevice device = devices.get(0);
 
-        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics", "controllableProperties");
+        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics",
+            "controllableProperties");
         assertThat(device.getProperties()).isNotEmpty();
         assertThat(device.getProperties().get("FirmwareVersion")).isNotEmpty();
         assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();
@@ -67,7 +68,7 @@ public class ShureSystemOnTest {
         shureSystemOn.controlProperty(new ControllableProperty("Mute", 1, deviceId));
 
         service.verify(patchRequestedFor(urlEqualTo("/api/v1.0/devices/" + deviceId + "/audio/mute"))
-                .withRequestBody(matchingJsonPath("$.muteState", equalTo("true"))));
+            .withRequestBody(matchingJsonPath("$.muteState", equalTo("true"))));
     }
 
     @Test
@@ -76,7 +77,7 @@ public class ShureSystemOnTest {
         shureSystemOn.controlProperty(new ControllableProperty("Mute", 0, deviceId));
 
         service.verify(patchRequestedFor(urlEqualTo("/api/v1.0/devices/" + deviceId + "/audio/mute"))
-                .withRequestBody(matchingJsonPath("$.muteState", equalTo("false"))));
+            .withRequestBody(matchingJsonPath("$.muteState", equalTo("false"))));
     }
 
     @Test

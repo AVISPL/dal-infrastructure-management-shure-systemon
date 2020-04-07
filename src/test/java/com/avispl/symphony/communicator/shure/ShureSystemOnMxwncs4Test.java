@@ -8,6 +8,7 @@ public class ShureSystemOnMxwncs4Test extends ShureSystemOnBaseModelTest {
         devicesSize = 2;
         modelName = "MXWNCS4";
         controlsSize = 0;
+        controllablePropertiesSize = 0;
         propertiesSize = 12;
     }
 }

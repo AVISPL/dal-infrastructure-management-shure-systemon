@@ -7,8 +7,8 @@ public class ShureSystemOnImxRoomTest extends ShureSystemOnBaseModelTest {
         jsonName = "shure/responces/IMX-Room.json";
         devicesSize = 3;
         modelName = "IMX-Room";
-        controlsSize = 2;
-        controllablePropertiesSize = 1;
+        controlsSize = 0;
+        controllablePropertiesSize = 3;
         propertiesSize = 31;
     }
 }

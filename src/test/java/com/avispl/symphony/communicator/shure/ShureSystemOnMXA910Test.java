@@ -7,8 +7,8 @@ public class ShureSystemOnMXA910Test extends ShureSystemOnBaseModelTest {
         jsonName = "shure/responces/MXA910.json";
         devicesSize = 3;
         modelName = "MXA910";
-        controlsSize = 2;
-        controllablePropertiesSize = 2;
+        controlsSize = 0;
+        controllablePropertiesSize = 4;
         propertiesSize = 36;
     }
 }

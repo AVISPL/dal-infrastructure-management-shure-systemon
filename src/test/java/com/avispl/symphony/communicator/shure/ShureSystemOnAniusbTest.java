@@ -7,8 +7,8 @@ public class ShureSystemOnAniusbTest extends ShureSystemOnBaseModelTest {
         jsonName = "shure/responces/ANIUSB.json";
         devicesSize = 2;
         modelName = "ANIUSB";
-        controlsSize = 2;
-        controllablePropertiesSize = 2;
+        controlsSize = 0;
+        controllablePropertiesSize = 4;
         propertiesSize = 34;
     }
 }

@@ -52,8 +52,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot
@@ -248,8 +256,16 @@ models:
         IsRemoteDevice: device.isRemoteDevice
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reset:
           type: Button
           label: Reset
@@ -299,8 +315,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot
@@ -351,8 +375,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot
@@ -403,8 +435,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot
@@ -455,8 +495,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot
@@ -501,7 +549,11 @@ models:
         IsInitialPasswordSet: device.isInitialPasswordSet
         Reset: device.Reset
       control:
-        Mute: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reset:
           type: Button
           label: Reset
@@ -544,8 +596,16 @@ models:
         Reboot: device.Reboot
         Reset: device.Reset
       control:
-        Mute: Toggle
-        DanteEncryption: Toggle
+        Mute:
+          value: device.deviceMute
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
+        DanteEncryption:
+          value: device.danteEncryptionEnabled
+          type: Switch
+          labelOff: "Off"
+          labelOn: "On"
         Reboot:
           type: Button
           label: Reboot

@@ -18,7 +18,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class AllSystemOnTest {
+public class ShureSystemOnDevicesTest {
 
     private ShureSystemOn shureSystemOn;
 

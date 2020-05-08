@@ -3,9 +3,6 @@
  */
 package com.avispl.symphony.dal.communicator.shure;
 
-import static java.util.concurrent.CompletableFuture.runAsync;
-import static java.util.stream.Collectors.toList;
-
 import com.avispl.symphony.api.dal.control.Controller;
 import com.avispl.symphony.api.dal.dto.control.ControllableProperty;
 import com.avispl.symphony.api.dal.dto.monitor.aggregator.AggregatedDevice;
@@ -15,14 +12,18 @@ import com.avispl.symphony.dal.aggregator.parser.PropertiesMapping;
 import com.avispl.symphony.dal.aggregator.parser.PropertiesMappingParser;
 import com.avispl.symphony.dal.communicator.RestCommunicator;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.util.CollectionUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.util.CollectionUtils;
+
+import static java.util.concurrent.CompletableFuture.runAsync;
+import static java.util.stream.Collectors.toList;
 
 /**
  * This class handles all communications to and from a Shure SystemOn gateway.
@@ -53,7 +54,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     protected void internalInit() throws Exception {
         super.internalInit();
         Map<String, PropertiesMapping> models = new PropertiesMappingParser()
-            .loadYML("shure/model-mapping.yml", getClass());
+                .loadYML("shure/model-mapping.yml", getClass());
         aggregatedDeviceProcessor = new AggregatedDeviceProcessor(models);
     }
 
@@ -66,6 +67,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     *
      * @throws Exception
      */
     @Override
@@ -81,6 +83,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     *
      * @throws Exception
      */
     @Override
@@ -91,8 +94,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
         if (logger.isDebugEnabled()) {
             logger.debug("ShureSystemOn controlProperty property=" + property + " value=" + value +
-                " deviceId=" + deviceId);
+                    " deviceId=" + deviceId);
         }
+
+        initShureDevice(deviceId);
 
         switch (property) {
             case "BypassAllEq":
@@ -115,6 +120,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
 
     /**
      * {@inheritDoc}
+     *
      * @throws Exception
      */
     @Override
@@ -127,10 +133,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         if (logger.isDebugEnabled()) {
             logger.debug("ShureSystemOn retrieveMultipleStatistics statistics.size=" + statistics.size());
             statistics.forEach(
-                device -> logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
-                    " DeviceModel=" + device.getDeviceModel()));
+                    device -> logger.debug("ShureSystemOn retrieveMultipleStatistics DeviceId=" + device.getDeviceId() +
+                            " DeviceModel=" + device.getDeviceModel()));
         }
-        initShureDevices(statistics);
+
         return statistics;
     }
 
@@ -153,37 +159,38 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     }
 
     /**
-     * Initialize Shure networked devices. It need do before call any control API
-     *
-     * @param statistics Devices statistics
-     */
-    private void initShureDevices(List<AggregatedDevice> statistics) {
-        ExecutorService executor = Executors.newCachedThreadPool();
-        statistics.forEach(device -> initShureDevice(device, executor));
-        executor.shutdownNow();
-    }
-
-    /**
      * Initialize Shure networked device /api/v1.0/devices/{hardwareId}/initialize
+     * It need do before call any control API
      *
      * @param device Shure device
-     * @param executor Adapter cached thread pool
      */
-    private void initShureDevice(AggregatedDevice device, ExecutorService executor) {
+    private void initShureDevice(AggregatedDevice device) {
         if (!modelsWithoutInitialize.contains(device.getDeviceModel())) {
-            runAsync(() -> {
-                try {
-                    doPost(String.format("/api/v1.0/devices/%s/initialize", device.getDeviceId()), null);
-                    System.out.println("do post initialize device=" + device.getDeviceId());
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-            }, executor).join();
+            initShureDevice(device.getDeviceId());
         }
     }
 
     /**
+     * Initialize Shure networked device /api/v1.0/devices/{hardwareId}/initialize
+     * It need do before call any control API
+     *
+     * @param deviceId Shure device ID
+     */
+    private void initShureDevice(String deviceId) {
+        ExecutorService executor = Executors.newCachedThreadPool();
+        runAsync(() -> {
+            try {
+                doPost(String.format("/api/v1.0/devices/%s/initialize", deviceId), null);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, executor).join();
+        executor.shutdownNow();
+    }
+
+    /**
      * {@inheritDoc}
+     *
      * @throws Exception
      */
     @Override
@@ -192,9 +199,9 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
             logger.debug("ShureSystemOn retrieveMultipleStatistics deviceIds=" + String.join(" ", deviceIds));
         }
         return retrieveMultipleStatistics()
-            .stream()
-            .filter(aggregatedDevice -> deviceIds.contains(aggregatedDevice.getDeviceId()))
-            .collect(toList());
+                .stream()
+                .filter(aggregatedDevice -> deviceIds.contains(aggregatedDevice.getDeviceId()))
+                .collect(toList());
     }
 
     /**
@@ -211,7 +218,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * Send mute command to device
      *
      * @param deviceId device id
-     * @param value property status
+     * @param value    property status
      * @throws Exception
      */
     private void mute(String deviceId, boolean value) throws Exception {
@@ -223,7 +230,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      * Send enable/disable audio encryption to device
      *
      * @param deviceId device id
-     * @param value property status
+     * @param value    property status
      * @throws Exception
      */
     private void encryption(String deviceId, boolean value) throws Exception {

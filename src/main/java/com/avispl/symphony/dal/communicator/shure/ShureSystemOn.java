@@ -19,10 +19,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import static java.util.concurrent.CompletableFuture.runAsync;
 import static java.util.stream.Collectors.toList;
 
 /**
@@ -164,7 +161,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      *
      * @param device Shure device
      */
-    private void initShureDevice(AggregatedDevice device) {
+    private void initShureDevice(AggregatedDevice device) throws Exception {
         if (!modelsWithoutInitialize.contains(device.getDeviceModel())) {
             initShureDevice(device.getDeviceId());
         }
@@ -177,16 +174,8 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
      *
      * @param deviceId Shure device ID
      */
-    private void initShureDevice(String deviceId) {
-        ExecutorService executor = Executors.newCachedThreadPool();
-        runAsync(() -> {
-            try {
-                doPost(String.format("/api/v1.0/devices/%s/initialize", deviceId), null);
-            } catch (Exception e) {
-                logger.error("Error when initialize Shure networked device", e);
-            }
-        }, executor).join();
-        executor.shutdownNow();
+    private void initShureDevice(String deviceId) throws Exception {
+        doPost(String.format("/api/v1.0/devices/%s/initialize", deviceId), null);
     }
 
     /**

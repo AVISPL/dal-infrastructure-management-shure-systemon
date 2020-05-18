@@ -86,7 +86,7 @@ models:
         HasShureBattery: device.hasShureBattery
         BatteryCycleCount: device.batteryCycleCount
         BatteryStatus: device.batteryStatus
-      statistic:
+      statistics:
         BatteryPercentage: device.batteryPercentage
         BatteryHealth: device.batteryHealth
         BatteryMinutesRemaining: device.batteryMinutesRemaining
@@ -104,7 +104,7 @@ models:
         HasShureBattery: device.hasShureBattery
         BatteryCycleCount: device.batteryCycleCount
         BatteryStatus: device.batteryStatus
-      statistic:
+      statistics:
         BatteryPercentage: device.batteryPercentage
         BatteryHealth: device.batteryHealth
         BatteryMinutesRemaining: device.batteryMinutesRemaining

@@ -3,62 +3,62 @@ models:
       name: generic
       vendor: shure
       properties:
-        FirmwareVersion: device.firmwareVersion
-        DeviceVersion: device.version
+        FirmwareVersion: get("firmwareVersion")
+        DeviceVersion: get("version")
       mapping:
         deviceType: Microphone
-        deviceId: device.hardwareId
-        deviceName: device.name
+        deviceId: get("hardwareId")
+        deviceName: get("name")
         deviceMake: Shure
-        deviceModel: device.model
+        deviceModel: get("model")
         deviceOnline: "true"
-        serialNumber: device.serialNumber
-        macAddresses: device.macAddress
+        serialNumber: get("serialNumber")
+        macAddresses: get("macAddress")
   - model:
       name: ANIUSB
       vendor: shure
-      filter: device.model=='ANIUSB'
+      filter: get("model").asText().equals("ANIUSB")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.IsIdentifying
-        IpMode: device.IpMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.AccessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        ActivePresetIndex: device.activePresetIndex
-        InputMeteringMode: device.inputMeteringMode
-        OutputMeteringMode: device.outputMeteringMode
-        MuteLogic: device.logicMuteEnabled
-        Mute: device.deviceMute
-        Reboot: device.Reboot
-        Reset: device.Reset
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("IsIdentifying")
+        IpMode: get("IpMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("AccessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        ActivePresetIndex: get("activePresetIndex")
+        InputMeteringMode: get("inputMeteringMode")
+        OutputMeteringMode: get("outputMeteringMode")
+        MuteLogic: get("logicMuteEnabled")
+        Mute: get("deviceMute")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -75,194 +75,194 @@ models:
   - model:
       name: MXW6
       vendor: shure
-      filter: device.model=='MXW6'
+      filter: get("model").asText().equals("MXW6")
       properties:
-        IsIdentifying: device.isIdentifying
-        IsRemoteDevice: device.isRemoteDevice
-        MicStatus: device.micStatus
-        MicGain: device.micGain
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryStatus: device.batteryStatus
+        IsIdentifying: get("isIdentifying")
+        IsRemoteDevice: get("isRemoteDevice")
+        MicStatus: get("micStatus")
+        MicGain: get("micGain")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryStatus: get("batteryStatus")
       statistics:
-        BatteryPercentage: device.batteryPercentage
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
+        BatteryPercentage: get("batteryPercentage")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
   - model:
       name: MXW8
       vendor: shure
-      filter: device.model=='MXW8'
+      filter: get("model").asText().equals("MXW8")
       properties:
-        IsIdentifying: device.isIdentifying
-        IsRemoteDevice: device.isRemoteDevice
-        MicStatus: device.micStatus
-        MicGain: device.micGain
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryStatus: device.batteryStatus
+        IsIdentifying: get("isIdentifying")
+        IsRemoteDevice: get("isRemoteDevice")
+        MicStatus: get("micStatus")
+        MicGain: get("micGain")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryStatus: get("batteryStatus")
       statistics:
-        BatteryPercentage: device.batteryPercentage
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
+        BatteryPercentage: get("batteryPercentage")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
   - model:
       name: MXWAPT2
       vendor: shure
-      filter: device.model=='MXWAPT2'
+      filter: get("model").asText().equals("MXWAPT2")
       properties:
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        GlobalMicStatus: device.globalMicStatus
-        Uptime: device.uptime
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        GlobalMicStatus: get("globalMicStatus")
+        Uptime: get("uptime")
   - model:
       name: MXWAPT4
       vendor: shure
-      filter: device.model=='MXWAPT4'
+      filter: get("model").asText().equals("MXWAPT4")
       properties:
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        GlobalMicStatus: device.globalMicStatus
-        Uptime: device.uptime
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        GlobalMicStatus: get("globalMicStatus")
+        Uptime: get("uptime")
   - model:
       name: MXWAPT8
       vendor: shure
-      filter: device.model=='MXWAPT8'
+      filter: get("model").asText().equals("MXWAPT8")
       properties:
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        GlobalMicStatus: device.globalMicStatus
-        Uptime: device.uptime
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        GlobalMicStatus: get("globalMicStatus")
+        Uptime: get("uptime")
   - model:
       name: MXWNCS2
       vendor: shure
-      filter: device.model=='MXWNCS2'
+      filter: get("model").asText().equals("MXWNCS2")
       properties:
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
   - model:
       name: MXWNCS4
       vendor: shure
-      filter: device.model=='MXWNCS4'
+      filter: get("model").asText().equals("MXWNCS4")
       properties:
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
   - model:
       name: MXWNCS8
       vendor: shure
-      filter: device.model=='MXWNCS8'
+      filter: get("model").asText().equals("MXWNCS8")
       properties:
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
   - model:
       name: IMX-Room
       vendor: shure
-      filter: device.model=='IMX-Room'
+      filter: get("model").asText().equals("IMX-Room")
       properties:
-        TpciServerEnable: device.tpciServerEnable
-        TpciServerPort: device.tpciServerPort
-        ImxChannelCount: device.imxChannelCount
-        ImxChannelCountSet: device.imxChannelCountSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        Mute: device.deviceMute
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        AnalyticsEnabled: device.analyticsEnabled
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        Reset: device.Reset
+        TpciServerEnable: get("tpciServerEnable")
+        TpciServerPort: get("tpciServerPort")
+        ImxChannelCount: get("imxChannelCount")
+        ImxChannelCountSet: get("imxChannelCountSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        Mute: get("deviceMute")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        AnalyticsEnabled: get("analyticsEnabled")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -274,54 +274,54 @@ models:
   - model:
       name: MXA310
       vendor: shure
-      filter: device.model=='MXA310'
+      filter: get("model").asText().equals("MXA310")
       properties:
-        ActivePresetIndex: device.activePresetIndex
-        LedDisplayAutomixGating: device.ledDisplayAutomixGating
-        LedFollowMuteColor: device.ledFollowMuteColor
-        LedStyleSetting: device.ledStyleSetting
-        HighPassFilter: device.highPassFilterEnable
-        BypassAllEq: device.bypassAllEq
-        MuteControlFunction: device.muteControlFunction
-        MuteButtonMode: device.muteButtonMode
-        ButtonDefaultsToMuted: device.buttonDefaultsToMuted
-        LogicOut: device.logicOut
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        Mute: device.deviceMute
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        Reboot: device.Reboot
-        Reset: device.Reset
+        ActivePresetIndex: get("activePresetIndex")
+        LedDisplayAutomixGating: get("ledDisplayAutomixGating")
+        LedFollowMuteColor: get("ledFollowMuteColor")
+        LedStyleSetting: get("ledStyleSetting")
+        HighPassFilter: get("highPassFilterEnable")
+        BypassAllEq: get("bypassAllEq")
+        MuteControlFunction: get("muteControlFunction")
+        MuteButtonMode: get("muteButtonMode")
+        ButtonDefaultsToMuted: get("buttonDefaultsToMuted")
+        LogicOut: get("logicOut")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        Mute: get("deviceMute")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -338,50 +338,50 @@ models:
   - model:
       name: MXA710-2FT
       vendor: shure
-      filter: device.model=='MXA710-2FT'
+      filter: get("model").asText().equals("MXA710-2FT")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        Mute: device.deviceMute
-        UnitsOfMeasurement: device.unitsOfMeasurement
-        ActivePresetIndex: device.activePresetIndex
-        BypassAllEq: device.bypassAllEq
-        LobeConfiguration: device.lobeConfiguration
-        EqContour: device.eqContour
-        BypassIntellimix: device.bypassIntellimix
-        Reboot: device.Reboot
-        Reset: device.Reset
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        Mute: get("deviceMute")
+        UnitsOfMeasurement: get("unitsOfMeasurement")
+        ActivePresetIndex: get("activePresetIndex")
+        BypassAllEq: get("bypassAllEq")
+        LobeConfiguration: get("lobeConfiguration")
+        EqContour: get("eqContour")
+        BypassIntellimix: get("bypassIntellimix")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -398,50 +398,50 @@ models:
   - model:
       name: MXA710-4FT
       vendor: shure
-      filter: device.model=='MXA710-4FT'
+      filter: get("model").asText().equals("MXA710-4FT")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        Mute: device.deviceMute
-        UnitsOfMeasurement: device.unitsOfMeasurement
-        ActivePresetIndex: device.activePresetIndex
-        BypassAllEq: device.bypassAllEq
-        LobeConfiguration: device.lobeConfiguration
-        EqContour: device.eqContour
-        BypassIntellimix: device.bypassIntellimix
-        Reboot: device.Reboot
-        Reset: device.Reset
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        Mute: get("deviceMute")
+        UnitsOfMeasurement: get("unitsOfMeasurement")
+        ActivePresetIndex: get("activePresetIndex")
+        BypassAllEq: get("bypassAllEq")
+        LobeConfiguration: get("lobeConfiguration")
+        EqContour: get("eqContour")
+        BypassIntellimix: get("bypassIntellimix")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -458,50 +458,50 @@ models:
   - model:
       name: MXA910
       vendor: shure
-      filter: device.model=='MXA910'
+      filter: get("model").asText().equals("MXA910")
       properties:
-        UnitsOfMeasurement: device.unitsOfMeasurement
-        EqContour: device.eqContour
-        BypassAllEq: device.bypassAllEq
-        ArrayHeight: device.arrayHeight
-        BypassIntellimix: device.bypassIntellimix
-        ActivePresetIndex: device.activePresetIndex
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        Mute: device.deviceMute
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        Reboot: device.Reboot
-        Reset: device.Reset
+        UnitsOfMeasurement: get("unitsOfMeasurement")
+        EqContour: get("eqContour")
+        BypassAllEq: get("bypassAllEq")
+        ArrayHeight: get("arrayHeight")
+        BypassIntellimix: get("bypassIntellimix")
+        ActivePresetIndex: get("activePresetIndex")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        Mute: get("deviceMute")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -518,39 +518,39 @@ models:
   - model:
       name: MXA-MUTE
       vendor: shure
-      filter: device.model=='MXA-MUTE'
+      filter: get("model").asText().equals("MXA-MUTE")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        ActivePresetIndex: device.activePresetIndex
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        LedMuteBehavior: device.ledMuteSettings.ledBehavior
-        LedMuteColor: device.ledMuteSettings.ledColor
-        LedUnmuteBehavior: device.ledUnmuteSettings.ledBehavior
-        LedUnmuteColor: device.ledUnmuteSettings.ledColor
-        LedIn: device.ledIn
-        MuteLedCurrentColor: device.muteLedCurrentColor
-        MuteLedActive: device.muteLedActive
-        MuteLedCurrentMode: device.muteLedCurrentMode
-        Mute: device.deviceMute
-        MuteControlFunction: device.muteControlFunction
-        MuteButtonMode: device.muteButtonMode
-        ButtonDefaultsToMuted: device.buttonDefaultsToMuted
-        LogicOut: device.logicOut
-        AssociatedMuteGroupControlHardwareIds: device.associatedMuteGroupControlHardwareIds
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        Reset: device.Reset
+        IsRemoteDevice: get("isRemoteDevice")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        ActivePresetIndex: get("activePresetIndex")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        LedMuteBehavior: get("ledMuteSettings")?.get("ledBehavior")
+        LedMuteColor: get("ledMuteSettings")?.get("ledColor")
+        LedUnmuteBehavior: get("ledUnmuteSettings")?.get("ledBehavior")
+        LedUnmuteColor: get("ledUnmuteSettings")?.get("ledColor")
+        LedIn: get("ledIn")
+        MuteLedCurrentColor: get("muteLedCurrentColor")
+        MuteLedActive: get("muteLedActive")
+        MuteLedCurrentMode: get("muteLedCurrentMode")
+        Mute: get("deviceMute")
+        MuteControlFunction: get("muteControlFunction")
+        MuteButtonMode: get("muteButtonMode")
+        ButtonDefaultsToMuted: get("buttonDefaultsToMuted")
+        LogicOut: get("logicOut")
+        AssociatedMuteGroupControlHardwareIds: get("associatedMuteGroupControlHardwareIds")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -562,47 +562,47 @@ models:
   - model:
       name: P300
       vendor: shure
-      filter: device.model=='P300'
+      filter: get("model").asText().equals("P300")
       properties:
-        ActivePresetIndex: device.activePresetIndex
-        InputMeteringMode: device.inputMeteringMode
-        OutputMeteringMode: device.outputMeteringMode
-        LedEthernetEnabled: device.ethernetLedEnabled
-        LedBrightnessPercentage: device.ledBrightnessPercentage
-        PasswordSet: device.passwordSet
-        IsInitialPasswordSet: device.isInitialPasswordSet
-        DanteEncryption: device.danteEncryptionEnabled
-        DanteEncryptionPassphraseSet: device.danteEncryptionPassphraseSet
-        DanteDeviceNameConflict: device.danteDeviceNameConflict
-        DanteClockSyncError: device.danteClockSyncError
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
-        Mute: device.deviceMute
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsRemoteDevice: device.isRemoteDevice
-        Reboot: device.Reboot
-        Reset: device.Reset
+        ActivePresetIndex: get("activePresetIndex")
+        InputMeteringMode: get("inputMeteringMode")
+        OutputMeteringMode: get("outputMeteringMode")
+        LedEthernetEnabled: get("ethernetLedEnabled")
+        LedBrightnessPercentage: get("ledBrightnessPercentage")
+        PasswordSet: get("passwordSet")
+        IsInitialPasswordSet: get("isInitialPasswordSet")
+        DanteEncryption: get("danteEncryptionEnabled")
+        DanteEncryptionPassphraseSet: get("danteEncryptionPassphraseSet")
+        DanteDeviceNameConflict: get("danteDeviceNameConflict")
+        DanteClockSyncError: get("danteClockSyncError")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
+        Mute: get("deviceMute")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsRemoteDevice: get("isRemoteDevice")
+        Reboot: Reboot
+        Reset: Reset
       control:
         Mute:
-          value: device.deviceMute
+          value: get("deviceMute")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
         DanteEncryption:
-          value: device.danteEncryptionEnabled
+          value: get("danteEncryptionEnabled")
           type: Switch
           labelOff: "Off"
           labelOn: "On"
@@ -619,434 +619,434 @@ models:
   - model:
       name: SBC220
       vendor: shure
-      filter: device.model=='SBC220'
+      filter: get("model").asText().equals("SBC220")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsInStorageMode: device.isInStorageMode
-        DaisyChainLimitExceeded: device.daisyChainLimitExceeded
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsInStorageMode: get("isInStorageMode")
+        DaisyChainLimitExceeded: get("daisyChainLimitExceeded")
   - model:
       name: SBC240
       vendor: shure
-      filter: device.model=='SBC240'
+      filter: get("model").asText().equals("SBC240")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        IsInStorageMode: device.isInStorageMode
-        DaisyChainLimitExceeded: device.daisyChainLimitExceeded
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        IsInStorageMode: get("isInStorageMode")
+        DaisyChainLimitExceeded: get("daisyChainLimitExceeded")
   - model:
       name: SBC250
       vendor: shure
-      filter: device.model=='SBC250'
+      filter: get("model").asText().equals("SBC250")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
   - model:
       name: SBC450
       vendor: shure
-      filter: device.model=='SBC450'
+      filter: get("model").asText().equals("SBC450")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
   - model:
       name: SBC850
       vendor: shure
-      filter: device.model=='SBC850'
+      filter: get("model").asText().equals("SBC850")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
   - model:
       name: SCM820
       vendor: shure
-      filter: device.model=='SCM820'
+      filter: get("model").asText().equals("SCM820")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        GlobalMuteStatus: device.mixMute
-        GlobalFrontPanelLockStatus: device.globalFrontPanelLock
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        GlobalMuteStatus: get("mixMute")
+        GlobalFrontPanelLockStatus: get("globalFrontPanelLock")
   - model:
       name: SCM820-DB25
       vendor: shure
-      filter: device.model=='SCM820-DB25'
+      filter: get("model").asText().equals("SCM820-DB25")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        GlobalMuteStatus: device.mixMute
-        GlobalFrontPanelLockStatus: device.globalFrontPanelLock
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        GlobalMuteStatus: get("mixMute")
+        GlobalFrontPanelLockStatus: get("globalFrontPanelLock")
   - model:
       name: SCM820-DAN
       vendor: shure
-      filter: device.model=='SCM820-DAN'
+      filter: get("model").asText().equals("SCM820-DAN")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        GlobalMuteStatus: device.mixMute
-        GlobalFrontPanelLockStatus: device.globalFrontPanelLock
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        RedundantDanteGateway: device.redundantDante.redundantGateway
-        RedundantDanteIpAddress: device.redundantDante.redundantIpAddress
-        RedundantDanteMacAddress: device.redundantDante.redundantMac
-        RedundantDanteIpMode: device.redundantDante.redundantIpMode
-        RedundantDanteSubnetMask: device.redundantDante.redundantSubnetMask
-        RedundantDanteConfig: device.redundantDante.config
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        GlobalMuteStatus: get("mixMute")
+        GlobalFrontPanelLockStatus: get("globalFrontPanelLock")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        RedundantDanteGateway: get("redundantDante")?.get("redundantGateway")
+        RedundantDanteIpAddress: get("redundantDante")?.get("redundantIpAddress")
+        RedundantDanteMacAddress: get("redundantDante")?.get("redundantMac")
+        RedundantDanteIpMode: get("redundantDante")?.get("redundantIpMode")
+        RedundantDanteSubnetMask: get("redundantDante")?.get("redundantSubnetMask")
+        RedundantDanteConfig: get("redundantDante")?.get("config")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
   - model:
       name: SCM820-DAN-DB25
       vendor: shure
-      filter: device.model=='SCM820-DAN-DB25'
+      filter: get("model").asText().equals("SCM820-DAN-DB25")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        GlobalMuteStatus: device.mixMute
-        GlobalFrontPanelLockStatus: device.globalFrontPanelLock
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        RedundantDanteGateway: device.redundantDante.redundantGateway
-        RedundantDanteIpAddress: device.redundantDante.redundantIpAddress
-        RedundantDanteMacAddress: device.redundantDante.redundantMac
-        RedundantDanteIpMode: device.redundantDante.redundantIpMode
-        RedundantDanteSubnetMask: device.redundantDante.redundantSubnetMask
-        RedundantDanteConfig: device.redundantDante.config
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        GlobalMuteStatus: get("mixMute")
+        GlobalFrontPanelLockStatus: get("globalFrontPanelLock")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        RedundantDanteGateway: get("redundantDante")?.get("redundantGateway")
+        RedundantDanteIpAddress: get("redundantDante")?.get("redundantIpAddress")
+        RedundantDanteMacAddress: get("redundantDante")?.get("redundantMac")
+        RedundantDanteIpMode: get("redundantDante")?.get("redundantIpMode")
+        RedundantDanteSubnetMask: get("redundantDante")?.get("redundantSubnetMask")
+        RedundantDanteConfig: get("redundantDante")?.get("config")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
   - model:
       name: QLXD1
       vendor: shure
-      filter: device.model=='QLXD1'
+      filter: get("model").asText().equals("QLXD1")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
   - model:
       name: QLXD2
       vendor: shure
-      filter: device.model=='QLXD2'
+      filter: get("model").asText().equals("QLXD2")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
   - model:
       name: QLXD4
       vendor: shure
-      filter: device.model=='QLXD4'
+      filter: get("model").asText().equals("QLXD4")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        FrontPanelLock: device.frontPanelLock
-        PowerSwitchLock: device.powerSwitchLock
-        EncryptionMode: device.encryptionMode
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        FrontPanelLock: get("frontPanelLock")
+        PowerSwitchLock: get("powerSwitchLock")
+        EncryptionMode: get("encryptionMode")
   - model:
       name: MXW1
       vendor: shure
-      filter: device.model=='MXW1'
+      filter: get("model").asText().equals("MXW1")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        IsIdentifying: device.isIdentifying
-        MicrophoneMode: device.microphoneMode
-        MicrophoneSelection: device.microphoneSelection
-        InternalMicrophoneGain: device.internalMicrophoneGain
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        IsIdentifying: get("isIdentifying")
+        MicrophoneMode: get("microphoneMode")
+        MicrophoneSelection: get("microphoneSelection")
+        InternalMicrophoneGain: get("internalMicrophoneGain")
   - model:
       name: MXW2
       vendor: shure
-      filter: device.model=='MXW2'
+      filter: get("model").asText().equals("MXW2")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        IsIdentifying: device.isIdentifying
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        IsIdentifying: get("isIdentifying")
   - model:
       name: ULXD1
       vendor: shure
-      filter: device.model=='ULXD1'
+      filter: get("model").asText().equals("ULXD1")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
-        Muted: device.muted
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
+        Muted: get("muted")
   - model:
       name: ULXD2
       vendor: shure
-      filter: device.model=='ULXD2'
+      filter: get("model").asText().equals("ULXD2")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
-        Muted: device.muted
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
+        Muted: get("muted")
   - model:
       name: ULXD4
       vendor: shure
-      filter: device.model=='ULXD4'
+      filter: get("model").asText().equals("ULXD4")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        FrontPanelLock: device.frontPanelLock
-        PowerSwitchLock: device.powerSwitchLock
-        EncryptionMode: device.encryptionMode
-        GlobalMuteStatus: device.globalMute
-        HighDensityMode: device.highDensityMode
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        FrontPanelLock: get("frontPanelLock")
+        PowerSwitchLock: get("powerSwitchLock")
+        EncryptionMode: get("encryptionMode")
+        GlobalMuteStatus: get("globalMute")
+        HighDensityMode: get("highDensityMode")
   - model:
       name: ULXD4D
       vendor: shure
-      filter: device.model=='ULXD4D'
+      filter: get("model").asText().equals("ULXD4D")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        FrontPanelLock: device.frontPanelLock
-        PowerSwitchLock: device.powerSwitchLock
-        EncryptionMode: device.encryptionMode
-        GlobalMuteStatus: device.globalMute
-        HighDensityMode: device.highDensityMode
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        RedundantDanteGateway: device.redundantDante.redundantGateway
-        RedundantDanteIpAddress: device.redundantDante.redundantIpAddress
-        RedundantDanteMacAddress: device.redundantDante.redundantMac
-        RedundantDanteIpMode: device.redundantDante.redundantIpMode
-        RedundantDanteSubnetMask: device.redundantDante.redundantSubnetMask
-        RedundantDanteConfig: device.redundantDante.config
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        FrontPanelLock: get("frontPanelLock")
+        PowerSwitchLock: get("powerSwitchLock")
+        EncryptionMode: get("encryptionMode")
+        GlobalMuteStatus: get("globalMute")
+        HighDensityMode: get("highDensityMode")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        RedundantDanteGateway: get("redundantDante")?.get("redundantGateway")
+        RedundantDanteIpAddress: get("redundantDante")?.get("redundantIpAddress")
+        RedundantDanteMacAddress: get("redundantDante")?.get("redundantMac")
+        RedundantDanteIpMode: get("redundantDante")?.get("redundantIpMode")
+        RedundantDanteSubnetMask: get("redundantDante")?.get("redundantSubnetMask")
+        RedundantDanteConfig: get("redundantDante")?.get("config")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
   - model:
       name: ULXD4Q
       vendor: shure
-      filter: device.model=='ULXD4Q'
+      filter: get("model").asText().equals("ULXD4Q")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        IsIdentifying: device.isIdentifying
-        IpMode: device.ipMode
-        IpAddress: device.currentIpAddress
-        IpNumber: device.currentIpNumber
-        SubnetMask: device.currentSubnetMask
-        Gateway: device.currentGateway
-        Uptime: device.uptime
-        AccessControlEnabled: device.accessControlEnabled
-        DeviceFactoryResetAllowed: device.deviceFactoryResetAllowed
-        FrontPanelLock: device.frontPanelLock
-        PowerSwitchLock: device.powerSwitchLock
-        EncryptionMode: device.encryptionMode
-        GlobalMuteStatus: device.globalMute
-        HighDensityMode: device.highDensityMode
-        DanteGateway: device.dante.gateway
-        DanteIpAddress: device.dante.ipAddress
-        DanteMacAddress: device.dante.mac
-        DanteIpMode: device.dante.ipMode
-        DanteSubnetMask: device.dante.subnetMask
-        DanteDeviceName: device.dante.deviceName
-        RedundantDanteGateway: device.redundantDante.redundantGateway
-        RedundantDanteIpAddress: device.redundantDante.redundantIpAddress
-        RedundantDanteMacAddress: device.redundantDante.redundantMac
-        RedundantDanteIpMode: device.redundantDante.redundantIpMode
-        RedundantDanteSubnetMask: device.redundantDante.redundantSubnetMask
-        RedundantDanteConfig: device.redundantDante.config
-        NetworkAudioChangesAllowed: device.networkAudioChangesAllowed
+        IsRemoteDevice: get("isRemoteDevice")
+        IsIdentifying: get("isIdentifying")
+        IpMode: get("ipMode")
+        IpAddress: get("currentIpAddress")
+        IpNumber: get("currentIpNumber")
+        SubnetMask: get("currentSubnetMask")
+        Gateway: get("currentGateway")
+        Uptime: get("uptime")
+        AccessControlEnabled: get("accessControlEnabled")
+        DeviceFactoryResetAllowed: get("deviceFactoryResetAllowed")
+        FrontPanelLock: get("frontPanelLock")
+        PowerSwitchLock: get("powerSwitchLock")
+        EncryptionMode: get("encryptionMode")
+        GlobalMuteStatus: get("globalMute")
+        HighDensityMode: get("highDensityMode")
+        DanteGateway: get("dante")?.get("gateway")
+        DanteIpAddress: get("dante")?.get("ipAddress")
+        DanteMacAddress: get("dante")?.get("mac")
+        DanteIpMode: get("dante")?.get("ipMode")
+        DanteSubnetMask: get("dante")?.get("subnetMask")
+        DanteDeviceName: get("dante")?.get("deviceName")
+        RedundantDanteGateway: get("redundantDante")?.get("redundantGateway")
+        RedundantDanteIpAddress: get("redundantDante")?.get("redundantIpAddress")
+        RedundantDanteMacAddress: get("redundantDante")?.get("redundantMac")
+        RedundantDanteIpMode: get("redundantDante")?.get("redundantIpMode")
+        RedundantDanteSubnetMask: get("redundantDante")?.get("redundantSubnetMask")
+        RedundantDanteConfig: get("redundantDante")?.get("config")
+        NetworkAudioChangesAllowed: get("networkAudioChangesAllowed")
   - model:
       name: ULXD6
       vendor: shure
-      filter: device.model=='ULXD6'
+      filter: get("model").asText().equals("ULXD6")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
-        Muted: device.muted
-        IsIdentifying: device.isIdentifying
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
+        Muted: get("muted")
+        IsIdentifying: get("isIdentifying")
   - model:
       name: ULXD8
       vendor: shure
-      filter: device.model=='ULXD8'
+      filter: get("model").asText().equals("ULXD8")
       properties:
-        IsRemoteDevice: device.isRemoteDevice
-        OnAir: device.onAir
-        OnCharger: device.onCharger
-        HasShureBattery: device.hasShureBattery
-        MicStatus: device.micStatus
-        BatteryPercentage: device.batteryPercentage
-        BatteryCycleCount: device.batteryCycleCount
-        BatteryHealth: device.batteryHealth
-        BatteryMinutesRemaining: device.batteryMinutesRemaining
-        MicGain: device.micGain
-        BatteryStatus: device.batteryStatus
-        LockStatus: device.lockStatus
-        RfPower: device.rfPower
-        BatteryType: device.batteryType
-        Muted: device.muted
-        IsIdentifying: device.isIdentifying
+        IsRemoteDevice: get("isRemoteDevice")
+        OnAir: get("onAir")
+        OnCharger: get("onCharger")
+        HasShureBattery: get("hasShureBattery")
+        MicStatus: get("micStatus")
+        BatteryPercentage: get("batteryPercentage")
+        BatteryCycleCount: get("batteryCycleCount")
+        BatteryHealth: get("batteryHealth")
+        BatteryMinutesRemaining: get("batteryMinutesRemaining")
+        MicGain: get("micGain")
+        BatteryStatus: get("batteryStatus")
+        LockStatus: get("lockStatus")
+        RfPower: get("rfPower")
+        BatteryType: get("batteryType")
+        Muted: get("muted")
+        IsIdentifying: get("isIdentifying")

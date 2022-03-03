@@ -32,7 +32,6 @@ import static java.util.stream.Collectors.toList;
  */
 public class ShureSystemOn extends RestCommunicator implements Aggregator, Controller {
 
-    private List<String> modelsWithoutInitialize = Arrays.asList("MXWAPT2", "MXW6", "MXWNCS2");
     private AggregatedDeviceProcessor aggregatedDeviceProcessor;
 
     private static final String BASE_URL = "/api/v1.0";

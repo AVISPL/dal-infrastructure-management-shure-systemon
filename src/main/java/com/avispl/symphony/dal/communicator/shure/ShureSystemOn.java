@@ -141,18 +141,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
     }
 
     /**
-     * Initialize Shure networked device /api/v1.0/devices/{hardwareId}/initialize
-     * It need do before call any control API
-     *
-     * @param device Shure device
-     */
-    private void initShureDevice(AggregatedDevice device) throws Exception {
-        if (!modelsWithoutInitialize.contains(device.getDeviceModel())) {
-            initShureDevice(device.getDeviceId());
-        }
-    }
-
-    /**
      * According to Shure SystemOn API documentation: DeviceAuthentication API section
      * Initialize Shure networked device /api/v1.0/devices/{hardwareId}/initialize
      * It need do before call any control API. In other cases API return error

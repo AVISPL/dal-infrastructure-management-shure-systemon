@@ -18,7 +18,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.CollectionUtils;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -32,7 +31,6 @@ import static java.util.stream.Collectors.toList;
  */
 public class ShureSystemOn extends RestCommunicator implements Aggregator, Controller {
 
-    private List<String> modelsWithoutInitialize = Arrays.asList("MXWAPT2", "MXW6", "MXWNCS2");
     private AggregatedDeviceProcessor aggregatedDeviceProcessor;
 
     private static final String BASE_URL = "/api/v1.0";
@@ -138,18 +136,6 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Contr
         }
 
         return headers;
-    }
-
-    /**
-     * Initialize Shure networked device /api/v1.0/devices/{hardwareId}/initialize
-     * It need do before call any control API
-     *
-     * @param device Shure device
-     */
-    private void initShureDevice(AggregatedDevice device) throws Exception {
-        if (!modelsWithoutInitialize.contains(device.getDeviceModel())) {
-            initShureDevice(device.getDeviceId());
-        }
     }
 
     /**

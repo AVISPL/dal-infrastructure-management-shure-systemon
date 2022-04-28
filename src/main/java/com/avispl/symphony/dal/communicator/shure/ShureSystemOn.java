@@ -908,8 +908,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
      */
     private int getTargetThreadsNumber(int basis) {
         int max = 1;
-        for (int i = 1; i<10; i++) if((basis % i)==0) {
-            max = i;
+        for (int i = 1; i<10; i++) {
+            if (basis % i == 0) {
+                max = i;
+            }
         }
         return max;
     }

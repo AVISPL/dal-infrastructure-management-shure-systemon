@@ -32,7 +32,7 @@ import static java.util.stream.Collectors.toList;
  * This class handles all communications to and from a Shure SystemOn gateway.
  *
  * @author Symphony Dev Team<br> Created on May 21, 2019
- * @since 4.7
+ * @since 1.0.0
  */
 public class ShureSystemOn extends RestCommunicator implements Aggregator, Monitorable, Controller {
     /**
@@ -571,7 +571,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
 
         statistics.forEach(device -> {
             String deviceId = device.getDeviceId();
-            device.setTimestamp(System.currentTimeMillis());
+            device.setTimestamp(currentTimestamp);
             retrievedRoomIds.add(deviceId);
             if (aggregatedDevices.containsKey(deviceId)) {
                 aggregatedDevices.get(deviceId).setDeviceOnline(device.getDeviceOnline());
@@ -908,7 +908,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
      */
     private int getTargetThreadsNumber(int basis) {
         int max = 1;
-        for (int i = 1; i<10; i++) {
+        for (int i = 1; i < 10; i++) {
             if (basis % i == 0) {
                 max = i;
             }

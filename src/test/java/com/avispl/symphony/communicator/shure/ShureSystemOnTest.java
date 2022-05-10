@@ -1,3 +1,6 @@
+/*
+ * Copyright (c) 2019-2022 AVI-SPL Inc. All Rights Reserved.
+ */
 package com.avispl.symphony.communicator.shure;
 
 import com.avispl.symphony.api.dal.dto.control.ControllableProperty;
@@ -6,9 +9,11 @@ import com.avispl.symphony.dal.communicator.shure.ShureSystemOn;
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.common.io.Resources;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.jupiter.api.Tag;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -17,9 +22,8 @@ import java.util.List;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.google.common.io.Resources.getResource;
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
+@Tag("unit")
 public class ShureSystemOnTest {
 
     @Rule
@@ -51,15 +55,14 @@ public class ShureSystemOnTest {
     public void retrieveMultipleStatisticsTest() throws Exception {
         List<AggregatedDevice> devices = shureSystemOn.retrieveMultipleStatistics();
 
-        assertThat(devices).isNotEmpty().hasSize(9);
+        Assert.assertEquals(9, devices.size());
 
         AggregatedDevice device = devices.get(0);
 
-        assertThat(device).hasNoNullFieldsOrPropertiesExcept("aviSplAssetId", "ownerAssetId", "monitoredStatistics",
-            "controllableProperties");
-        assertThat(device.getProperties()).isNotEmpty();
-        assertThat(device.getProperties().get("FirmwareVersion")).isNotEmpty();
-        assertThat(device.getProperties().get("DeviceVersion")).isNotEmpty();
+        Assert.assertNotNull(device.getProperties());
+        Assert.assertFalse(device.getProperties().isEmpty());
+        Assert.assertNotEquals("", device.getProperties().get("FirmwareVersion"));
+        Assert.assertNotEquals("", device.getProperties().get("DeviceVersion"));
     }
 
     @Test
@@ -123,6 +126,5 @@ public class ShureSystemOnTest {
     @Test(expected = IllegalArgumentException.class)
     public void controlPropertiesTest() throws Exception {
         shureSystemOn.controlProperties(Collections.emptyList());
-        failBecauseExceptionWasNotThrown(IllegalArgumentException.class);
     }
 }

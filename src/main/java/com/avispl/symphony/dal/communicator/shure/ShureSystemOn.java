@@ -476,7 +476,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
         if (logger.isDebugEnabled()) {
             logger.debug(String.format("Adapter initialized: %s, executorService exists: %s, serviceRunning: %s", isInitialized(), executorService != null, serviceRunning));
         }
-        if (executorService == null) {
+        if (executorService == null || executorService.isTerminated() || executorService.isShutdown()) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Restarting executor service and initializing with the new data loader");
+            }
             // Due to the bug that after changing properties on fly - the adapter is destroyed but is not initialized properly afterwards,
             // so executor service is not running. We need to make sure executorService exists
             executorService = Executors.newFixedThreadPool(1);

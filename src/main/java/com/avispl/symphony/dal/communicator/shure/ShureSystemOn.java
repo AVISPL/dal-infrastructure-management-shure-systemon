@@ -87,6 +87,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
                         logger.debug("Fetched devices list: " + aggregatedDevices);
                     }
                 } catch (Exception e) {
+                    aggregatedDevices.clear();
                     String message = e.getMessage();
                     latestErrors.put(e.getClass().getSimpleName(), limitErrorMessageByLength(message, 120));
                     logger.error("Error occurred during device list retrieval: " + message + " with cause: " + e.getCause().getMessage(), e);
@@ -103,6 +104,9 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
                             fetchDeviceByHardwareId(hardwareId);
                         } catch (Exception e) {
                             retrievedWithError = true;
+                            // remove if device was not retrieved successfully
+                            aggregatedDevices.keySet().removeIf(hardwareId::equals);
+
                             latestErrors.put(String.format("%s[%s]", e.getClass().getSimpleName(), hardwareId), limitErrorMessageByLength(e.getMessage(), 120));
                             logger.error(String.format("Exception during retrieval device by hardware id '%s'.", hardwareId), e);
                         }
@@ -476,7 +480,10 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
         if (logger.isDebugEnabled()) {
             logger.debug(String.format("Adapter initialized: %s, executorService exists: %s, serviceRunning: %s", isInitialized(), executorService != null, serviceRunning));
         }
-        if (executorService == null) {
+        if (executorService == null || executorService.isTerminated() || executorService.isShutdown()) {
+            if (logger.isDebugEnabled()) {
+                logger.debug("Restarting executor service and initializing with the new data loader");
+            }
             // Due to the bug that after changing properties on fly - the adapter is destroyed but is not initialized properly afterwards,
             // so executor service is not running. We need to make sure executorService exists
             executorService = Executors.newFixedThreadPool(1);
@@ -553,6 +560,8 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
             return;
         }
         if (StringUtils.isNotNullOrEmpty(hardwareIdFilter) && StringUtils.isNullOrEmpty(deviceModelFilter)) {
+            // remove devices that are supposed to be filtered out now
+            aggregatedDevices.keySet().removeIf(existingDevice -> hardwareIdFilter.contains(existingDevice));
             if (logger.isDebugEnabled()) {
                 logger.debug(String.format("Skipping unfiltered devices search, hardwareIdFilter is provided: '%s'", hardwareIdFilter));
             }
@@ -566,13 +575,13 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
         buildQueryStringFromCSV(builder, "deviceModels", deviceModelFilter);
         JsonNode properties = doGet(BASE_URL + "/devices" + builder, JsonNode.class);
 
-        List<String> retrievedRoomIds = new ArrayList<>();
+        List<String> retrievedDeviceIds = new ArrayList<>();
         List<AggregatedDevice> statistics = aggregatedDeviceProcessor.extractDevices(properties);
 
         statistics.forEach(device -> {
             String deviceId = device.getDeviceId();
             device.setTimestamp(currentTimestamp);
-            retrievedRoomIds.add(deviceId);
+            retrievedDeviceIds.add(deviceId);
             if (aggregatedDevices.containsKey(deviceId)) {
                 aggregatedDevices.get(deviceId).setDeviceOnline(device.getDeviceOnline());
             } else {
@@ -585,7 +594,7 @@ public class ShureSystemOn extends RestCommunicator implements Aggregator, Monit
         }
         // Remove devices that were not populated by the API and are not a part of hardwareIdFilter,
         // so they won't be retrieved later and were not retrieved by the filtered approach
-        aggregatedDevices.keySet().removeIf(existingDevice -> !retrievedRoomIds.contains(existingDevice)
+        aggregatedDevices.keySet().removeIf(existingDevice -> !retrievedDeviceIds.contains(existingDevice)
         && !hardwareIdFilter.contains(existingDevice));
 
         if (statistics.isEmpty() && StringUtils.isNullOrEmpty(hardwareIdFilter)) {
